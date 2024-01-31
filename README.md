@@ -73,7 +73,7 @@ where  $MET_{c,s}$  represents metric for the $c$ types of corruption at the $s$
 
 *Relative Resistance Ability* ( $RRA_{c}$ ) compares the relative robustness of each model for a specific type of corruption with a baseline model. If the value is greater than zero, it indicates that the model demonstrates superior robustness compared to the baseline model. If the value is less than zero, it suggests that the model is less robust than the baseline. We can summarize the relative resistance by computing *Mean Relative Resistance Ability* (mRRA), which measures the relative robustness of the candidate model compared to a baseline model for all types of corruptions
 
-$$RRA_{c} = \frac{\sum_{s=1}^{3} (MET_{c, s})}{\sum_{s=1}^{3} (MET_{baseline, c, s})} - 1,$$
+$$RRA_{c} = \frac{\sum\limits_{i=1}^{3} (MET_{c, s})}{\sum\limits_{i=1}^{3} (MET_{baseline, c, s})} - 1,$$
 
 
 $$mRRA = \frac{1}{N} \sum_{i=1}^{N} RRA_c.$$
