@@ -20,11 +20,11 @@
 ## Overview
 - [Corruption Types Overview](#corruption-types-overview)
 - [News](#news)
-- [TODOs](#todos)
 - [Benchmark - Multi-Modal Models](#benchmark---multi-modal-models)
 - [Metrics](#metrics)
 - [Installation](#installation)
 - [Usage](#usage)
+- [TODOs](#todos)
 - [Contribution](#contribution)
 - [Acknowledgments](#acknowledgments)
 - [Citation](#citation)
@@ -111,10 +111,6 @@
 
 ## News
 - [01.02.2024] Initial Release with **10 corruption types** and **5 evaluated models**
-
-## TODOs
-
-- [ ] Add more visualization
 
 ## Benchmark - Multi-Modal Models
 ### Resistance Ability (RA) computed with NDS metric
@@ -232,6 +228,9 @@ python3 converter/lidar_converter.py \
 --sweep true
 ```
 
+## TODOs
+- [ ] Add more visualization
+- [ ] Add contribution guidelines
 
 ## Contribution
 - **Coming Soon**
