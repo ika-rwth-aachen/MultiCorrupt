@@ -18,18 +18,79 @@
 
 ## Corruption Types Overview
 
-| Corruption Type         | Level 1  LiDAR                                  | Level 2  LiDAR                                  | Level 3  LiDAR                                  | Level 1  Camera                                  | Level 2  Camera                                  | Level 3  Camera                                  |
-|-------------------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---------------------------------------------------------------------|---------------------------------------------------------------------|---------------------------------------------------------------------|
-| **Missing Camera**       | N/A | N/A | N/A | ![Severity 1 Multi-View](assets/missingcamera_1_multi_view_camera_scene-0097_scene_animation.gif) | ![Severity 2 Multi-View](assets/missingcamera_2_multi_view_camera_scene-0097_scene_animation.gif) | ![Severity 3 Multi-View](assets/missingcamera_3_multi_view_camera_scene-0097_scene_animation.gif) |
-| **Motion Blur**          | ![Severity 1 BEV](assets/motionblur_1_bev_scene-0097_scene_animation.gif) | ![Severity 2 BEV](assets/motionblur_2_bev_scene-0097_scene_animation.gif) | ![Severity 3 BEV](assets/motionblur_3_bev_scene-0097_scene_animation.gif) | ![Severity 1 Front](assets/motionblur_1_front_camera_scene-0097_scene_animation.gif) | ![Severity 2 Front](assets/motionblur_2_front_camera_scene-0097_scene_animation.gif) | ![Severity 3 Front](assets/motionblur_3_front_camera_scene-0097_scene_animation.gif) |
-| **Points Reducing**      | ![Severity 1 BEV](assets/pointsreducing_1_bev_scene-0097_scene_animation.gif) | ![Severity 2 BEV](assets/pointsreducing_2_bev_scene-0097_scene_animation.gif) | ![Severity 3 BEV](assets/pointsreducing_3_bev_scene-0097_scene_animation.gif) | ![Severity 1 Front](assets/pointsreducing_1_front_camera_scene-0097_scene_animation.gif) | ![Severity 2 Front](assets/pointsreducing_2_front_camera_scene-0097_scene_animation.gif) | ![Severity 3 Front](assets/pointsreducing_3_front_camera_scene-0097_scene_animation.gif) |
-| **Snow**                 | ![Severity 1 BEV](assets/snow_1_bev_scene-0097_scene_animation.gif) | ![Severity 2 BEV](assets/snow_2_bev_scene-0097_scene_animation.gif) | ![Severity 3 BEV](assets/snow_3_bev_scene-0097_scene_animation.gif) | ![Severity 1 Front](assets/snow_1_front_camera_scene-0097_scene_animation.gif) | ![Severity 2 Front](assets/snow_2_front_camera_scene-0097_scene_animation.gif) | ![Severity 3 Front](assets/snow_3_front_camera_scene-0097_scene_animation.gif) |
-| **Temporal Misalignment**| ![Severity 1 BEV](assets/temporalmisalignment_1_bev_scene-0097_scene_animation.gif) | ![Severity 2 BEV](assets/temporalmisalignment_2_bev_scene-0097_scene_animation.gif) | ![Severity 3 BEV](assets/temporalmisalignment_3_bev_scene-0097_scene_animation.gif) | ![Severity 1 Multi-View](assets/temporalmisalignment_1_multi_view_camera_scene-0097_scene_animation.gif) | ![Severity 2 Multi-View](assets/temporalmisalignment_2_multi_view_camera_scene-0097_scene_animation.gif) | ![Severity 3 Multi-View](assets/temporalmisalignment_3_multi_view_camera_scene-0097_scene_animation.gif) |
-| **Spatial Misalignment** | ![Severity 1 BEV](assets/spatialmisalignment_1_bev_scene-0097_scene_animation.gif) | ![Severity 2 BEV](assets/spatialmisalignment_2_bev_scene-0097_scene_animation.gif) | ![Severity 3 BEV](assets/spatialmisalignment_3_bev_scene-0097_scene_animation.gif) | ![Severity 1 Multi-View](assets/spatialmisalignment_1_multi_view_camera_scene-0097_scene_animation.gif) | ![Severity 2 Multi-View](assets/spatialmisalignment_2_multi_view_camera_scene-0097_scene_animation.gif) | ![Severity 3 Multi-View](assets/spatialmisalignment_3_multi_view_camera_scene-0097_scene_animation.gif) |
-| **Beams Reducing**       | ![Severity 1 BEV](assets/beamsreducing_1_bev_scene-0097_scene_animation.gif) | ![Severity 2 BEV](assets/beamsreducing_2_bev_scene-0097_scene_animation.gif) | ![Severity 3 BEV](assets/beamsreducing_3_bev_scene-0097_scene_animation.gif) | ![Severity 1 Front](assets/beamsreducing_1_front_camera_scene-0097_scene_animation.gif) | ![Severity 2 Front](assets/beamsreducing_2_front_camera_scene-0097_scene_animation.gif) | ![Severity 3 Front](assets/beamsreducing_3_front_camera_scene-0097_scene_animation.gif) |
-| **Brightness**           | N/A | N/A | N/A | ![Severity 1 Multi-View](assets/brightness_1_multi_view_camera_scene-0097_scene_animation.gif) | ![Severity 2 Multi-View](assets/brightness_2_multi_view_camera_scene-0097_scene_animation.gif) | ![Severity 3 Multi-View](assets/brightness_3_multi_view_camera_scene-0097_scene_animation.gif) |
-| **Dark**                 | N/A | N/A | N/A | ![Severity 1 Multi-View](assets/dark_1_multi_view_camera_scene-0097_scene_animation.gif) | ![Severity 2 Multi-View](assets/dark_2_multi_view_camera_scene-0097_scene_animation.gif) | ![Severity 3 Multi-View](assets/dark_3_multi_view_camera_scene-0097_scene_animation.gif) |
-| **Fog**                  | ![Severity 1 BEV](assets/fog_1_bev_scene-0097_scene_animation.gif) | ![Severity 2 BEV](assets/fog_2_bev_scene-0097_scene_animation.gif) | ![Severity 3 BEV](assets/fog_3_bev_scene-0097_scene_animation.gif) | ![Severity 1 Multi-View](assets/fog_1_multi_view_camera_scene-0097_scene_animation.gif) | ![Severity 2 Multi-View](assets/fog_2_multi_view_camera_scene-0097_scene_animation.gif) | ![Severity 3 Multi-View](assets/fog_3_multi_view_camera_scene-0097_scene_animation.gif) |
+### Missing Camera
+| Severity Level 1                                       | Severity Level 2                                       | Severity Level 3                                       |
+|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
+| Multi-View:                                            | Multi-View:                                            | Multi-View:                                            |
+| ![Severity 1 Multi-View](assets/missingcamera_1_multi_view_camera_scene-0097_scene_animation.gif) | ![Severity 2 Multi-View](assets/missingcamera_2_multi_view_camera_scene-0097_scene_animation.gif) | ![Severity 3 Multi-View](assets/missingcamera_3_multi_view_camera_scene-0097_scene_animation.gif) |
+
+### Motion Blur
+| Severity Level 1 | Severity Level 2 | Severity Level 3 |
+|-------------------|-------------------|-------------------|
+| BEV:              | BEV:              | BEV:              |
+| ![Severity 1 BEV](assets/motionblur_1_bev_scene-0097_scene_animation.gif) | ![Severity 2 BEV](assets/motionblur_2_bev_scene-0097_scene_animation.gif) | ![Severity 3 BEV](assets/motionblur_3_bev_scene-0097_scene_animation.gif) |
+| Front:            | Front:            | Front:            |
+| ![Severity 1 Front](assets/motionblur_1_front_camera_scene-0097_scene_animation.gif) | ![Severity 2 Front](assets/motionblur_2_front_camera_scene-0097_scene_animation.gif) | ![Severity 3 Front](assets/motionblur_3_front_camera_scene-0097_scene_animation.gif) |
+
+### Points Reducing
+| Severity Level 1 | Severity Level 2 | Severity Level 3 |
+|-------------------|-------------------|-------------------|
+| BEV:              | BEV:              | BEV:              |
+| ![Severity 1 BEV](assets/pointsreducing_1_bev_scene-0097_scene_animation.gif) | ![Severity 2 BEV](assets/pointsreducing_2_bev_scene-0097_scene_animation.gif) | ![Severity 3 BEV](assets/pointsreducing_3_bev_scene-0097_scene_animation.gif) |
+| Front:            | Front:            | Front:            |
+| ![Severity 1 Front](assets/pointsreducing_1_front_camera_scene-0097_scene_animation.gif) | ![Severity 2 Front](assets/pointsreducing_2_front_camera_scene-0097_scene_animation.gif) | ![Severity 3 Front](assets/pointsreducing_3_front_camera_scene-0097_scene_animation.gif) |
+
+### Snow
+| Severity Level 1 | Severity Level 2 | Severity Level 3 |
+|-------------------|-------------------|-------------------|
+| BEV:              | BEV:              | BEV:              |
+| ![Severity 1 BEV](assets/snow_1_bev_scene-0097_scene_animation.gif) | ![Severity 2 BEV](assets/snow_2_bev_scene-0097_scene_animation.gif) | ![Severity 3 BEV](assets/snow_3_bev_scene-0097_scene_animation.gif) |
+| Front:            | Front:            | Front:            |
+| ![Severity 1 Front](assets/snow_1_front_camera_scene-0097_scene_animation.gif) | ![Severity 2 Front](assets/snow_2_front_camera_scene-0097_scene_animation.gif) | ![Severity 3 Front](assets/snow_3_front_camera_scene-0097_scene_animation.gif) |
+
+### Temporal Misalignment
+| Severity Level 1 | Severity Level 2 | Severity Level 3 |
+|-------------------|-------------------|-------------------|
+| BEV:              | BEV:              | BEV:              |
+| ![Severity 1 BEV](assets/temporalmisalignment_1_bev_scene-0097_scene_animation.gif) | ![Severity 2 BEV](assets/temporalmisalignment_2_bev_scene-0097_scene_animation.gif) | ![Severity 3 BEV](assets/temporalmisalignment_3_bev_scene-0097_scene_animation.gif) |
+| Multi-View:       | Multi-View:       | Multi-View:       |
+| ![Severity 1 Multi-View](assets/temporalmisalignment_1_multi_view_camera_scene-0097_scene_animation.gif) | ![Severity 2 Multi-View](assets/temporalmisalignment_2_multi_view_camera_scene-0097_scene_animation.gif) | ![Severity 3 Multi-View](assets/temporalmisalignment_3_multi_view_camera_scene-0097_scene_animation.gif) |
+
+### Spatial Misalignment
+| Severity Level 1 | Severity Level 2 | Severity Level 3 |
+|-------------------|-------------------|-------------------|
+| BEV:              | BEV:              | BEV:              |
+| ![Severity 1 BEV](assets/spatialmisalignment_1_bev_scene-0097_scene_animation.gif) | ![Severity 2 BEV](assets/spatialmisalignment_2_bev_scene-0097_scene_animation.gif) | ![Severity 3 BEV](assets/spatialmisalignment_3_bev_scene-0097_scene_animation.gif) |
+| Multi-View:       | Multi-View:       | Multi-View:       |
+| ![Severity 1 Multi-View](assets/spatialmisalignment_1_multi_view_camera_scene-0097_scene_animation.gif) | ![Severity 2 Multi-View](assets/spatialmisalignment_2_multi_view_camera_scene-0097_scene_animation.gif) | ![Severity 3 Multi-View](assets/spatialmisalignment_3_multi_view_camera_scene-0097_scene_animation.gif) |
+
+### Beams Reducing
+| Severity Level 1 | Severity Level 2 | Severity Level 3 |
+|-------------------|-------------------|-------------------|
+| BEV:              | BEV:              | BEV:              |
+| ![Severity 1 BEV](assets/beamsreducing_1_bev_scene-0097_scene_animation.gif) | ![Severity 2 BEV](assets/beamsreducing_2_bev_scene-0097_scene_animation.gif) | ![Severity 3 BEV](assets/beamsreducing_3_bev_scene-0097_scene_animation.gif) |
+| Front:            | Front:            | Front:            |
+| ![Severity 1 Front](assets/beamsreducing_1_front_camera_scene-0097_scene_animation.gif) | ![Severity 2 Front](assets/beamsreducing_2_front_camera_scene-0097_scene_animation.gif) | ![Severity 3 Front](assets/beamsreducing_3_front_camera_scene-0097_scene_animation.gif) |
+
+### Brightness
+| Severity Level 1 | Severity Level 2 | Severity Level 3 |
+|-------------------|-------------------|-------------------|
+| Multi-View:       | Multi-View:       | Multi-View:       |
+| ![Severity 1 Multi-View](assets/brightness_1_multi_view_camera_scene-0097_scene_animation.gif) | ![Severity 2 Multi-View](assets/brightness_2_multi_view_camera_scene-0097_scene_animation.gif) | ![Severity 3 Multi-View](assets/brightness_3_multi_view_camera_scene-0097_scene_animation.gif) |
+
+### Dark
+| Severity Level 1 | Severity Level 2 | Severity Level 3 |
+|-------------------|-------------------|-------------------|
+| Multi-View:       | Multi-View:       | Multi-View:       |
+| ![Severity 1 Multi-View](assets/dark_1_multi_view_camera_scene-0097_scene_animation.gif) | ![Severity 2 Multi-View](assets/dark_2_multi_view_camera_scene-0097_scene_animation.gif) | ![Severity 3 Multi-View](assets/dark_3_multi_view_camera_scene-0097_scene_animation.gif) |
+
+### Fog
+| Severity Level 1 | Severity Level 2 | Severity Level 3 |
+|-------------------|-------------------|-------------------|
+| BEV:              | BEV:              | BEV:              |
+| ![Severity 1 BEV](assets/fog_1_bev_scene-0097_scene_animation.gif) | ![Severity 2 BEV](assets/fog_2_bev_scene-0097_scene_animation.gif) | ![Severity 3 BEV](assets/fog_3_bev_scene-0097_scene_animation.gif) |
+| Multi-View:       | Multi-View:       | Multi-View:       |
+| ![Severity 1 Multi-View](assets/fog_1_multi_view_camera_scene-0097_scene_animation.gif) | ![Severity 2 Multi-View](assets/fog_2_multi_view_camera_scene-0097_scene_animation.gif) | ![Severity 3 Multi-View](assets/fog_3_multi_view_camera_scene-0097_scene_animation.gif) |
 
 
 *Note: Right click and click on `Open Image in new tab` to enlarge an animation*
