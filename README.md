@@ -18,9 +18,9 @@
 
 <!-- omit in toc -->
 ## Overview
-- [Corruption Types Overview](#corruption-types-overview)
+- [Corruption Types](#corruption-types)
 - [News](#news)
-- [Benchmark - Multi-Modal Models](#benchmark---multi-modal-models)
+- [Benchmark Results](#benchmark-results)
 - [Metrics](#metrics)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -30,7 +30,7 @@
 - [Citation](#citation)
 
 
-## Corruption Types Overview
+## Corruption Types
 
 ### Missing Camera
 | Severity Level 1                                       | Severity Level 2                                       | Severity Level 3                                       |
@@ -112,7 +112,7 @@
 ## News
 - [01.02.2024] Initial Release with **10 corruption types** and **5 evaluated models**
 
-## Benchmark - Multi-Modal Models
+## Benchmark Results
 ### Resistance Ability (RA) computed with NDS metric
 
 | Model                                                           | Clean     | Beams Red.   | Brightness   | Darkness   | Fog       | Missing Cam.   | Motion Blur   | Points Red.   | Snow      | Spatial Mis.   | Temporal Mis.   | mRA       |
