@@ -16,6 +16,20 @@
 
 > **Abstract:** Multi-modal 3D object detection models for autonomous driving have demonstrated exceptional performance on computer vision benchmarks like nuScenes. However, their reliance on densely sampled LiDAR point clouds and meticulously calibrated sensor arrays poses challenges for real-world applications. Issues such as sensor misalignment, miscalibration, and disparate sampling frequencies lead to spatial and temporal misalignment in data from LiDAR and cameras. Additionally, the integrity of LiDAR and camera data is often compromised by adverse environmental conditions such as inclement weather, leading to occlusions and noise interference. To address this challenge, we introduce MultiCorrupt, a comprehensive benchmark designed to evaluate the robustness of multi-modal 3D object detectors against ten distinct types of corruptions.
 
+<!-- omit in toc -->
+## Overview
+- [Corruption Types Overview](#corruption-types-overview)
+- [News](#news)
+- [TODOs](#todos)
+- [Benchmark - Multi-Modal Models](#benchmark---multi-modal-models)
+- [Metrics](#metrics)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contribution](#contribution)
+- [Acknowledgments](#acknowledgments)
+- [Citation](#citation)
+
+
 ## Corruption Types Overview
 
 ### Missing Camera
