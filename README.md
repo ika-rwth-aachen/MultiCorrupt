@@ -154,19 +154,30 @@ where $c$ denotes the type of corruption, $s$ represents the level of severity, 
 
 ## Installation
 
-1. Clone this repository:
+#### Clone this repository:
 
     ```bash
     git clone https://github.com/ika-rwth-aachen/MultiCorrupt.git
     cd multicorrupt
     ```
 
-2. Build the Docker image:
+#### Build the Docker image:
 
     ```bash
     cd docker
     docker build -t data_create -f Dockerfile.data .
     ```
+
+#### Download Snowflakes
+We use [LiDAR_snow_sim](https://github.com/SysCV/LiDAR_snow_sim) to simulate snow in LiDAR point clouds. To make the
+snow simulation run we need to download the snowflakes:
+```bash
+cd converter
+wget https://www.trace.ethz.ch/publications/2022/lidar_snow_simulation/snowflakes.zip
+unzip snowflakes.zip
+rm snowflakes.zip
+```
+
 
 ## Usage
 
@@ -193,8 +204,8 @@ Inside the script, you can customize the parameters:
 ```bash
 python converter/img_converter.py \
 --corruption snow \
---root_folder /workspace/nuscenes/nuscenes \
---dst_folder /workspace/corrupted_nuscenes/robust-nuscenes/snow/3 \
+--root_folder /workspace/data/nuscenes \
+--dst_folder /workspace/multicorrupt/snow/3 \
 --severity 3 \
 --n_cpus 24
 ```
@@ -221,8 +232,8 @@ converter/lidar_converter.py
 ```bash
 python3 converter/lidar_converter.py \
 --corruption snow \
---root_folder /workspace/nuscenes/nuscenes \
---dst_folder /workspace/corrupted_nuscenes/robust-nuscenes/snow/3/ \
+--root_folder /workspace/data/nuscenes \
+--dst_folder /workspace/multicorrupt/snow/3/ \
 --severity 3 \
 --n_cpus 64 \
 --sweep true
