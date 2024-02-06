@@ -156,21 +156,22 @@ where $c$ denotes the type of corruption, $s$ represents the level of severity, 
 
 #### Clone this repository:
 
-    ```bash
-    git clone https://github.com/ika-rwth-aachen/MultiCorrupt.git
-    cd multicorrupt
-    ```
+```bash
+git clone https://github.com/ika-rwth-aachen/MultiCorrupt.git
+cd multicorrupt
+```
 
 #### Build the Docker image:
 
-    ```bash
-    cd docker
-    docker build -t data_create -f Dockerfile.data .
-    ```
+```bash
+cd docker
+docker build -t data_create -f Dockerfile.data .
+```
 
 #### Download Snowflakes
 We use [LiDAR_snow_sim](https://github.com/SysCV/LiDAR_snow_sim) to simulate snow in LiDAR point clouds. To make the
 snow simulation run we need to download the snowflakes:
+
 ```bash
 cd converter
 wget https://www.trace.ethz.ch/publications/2022/lidar_snow_simulation/snowflakes.zip
@@ -191,7 +192,7 @@ converter/img_converter.py
 
 Inside the script, you can customize the parameters:
 
-```
+```bash
 --corruption: Choose the corruption type from 'snow', 'fog', 'temporalmisalignment', 'brightness', 'dark', 'missingcamera', 'motionblur'.
 --root_folder: The directory of the nuScenes dataset.
 --dst_folder: The destination folder for the generated dataset.
@@ -218,7 +219,7 @@ Run the following script to generate a corrupted image dataset:
 converter/lidar_converter.py
 ```
 
-```
+```bash
 --corruption: Choose the corruption type from 'pointsreducing', 'beamsreducing', 'snow', 'fog', 'copy', 'spatialmisalignment', 'temporalmisalignment', 'motionblur'.
 --sweep: If apply for sweep LiDAR (true/false).
 --root_folder: The directory of the nuScenes dataset.
