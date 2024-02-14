@@ -4,7 +4,6 @@ import math
 from typing import Dict, List, Tuple
 from copy import deepcopy
 import numpy as np
-import torch
 import pickle5 as pickle
 from pathlib import Path
 import yaml
@@ -133,70 +132,29 @@ def reduce_LiDAR_beamsV2(pts, severity):
     return pts[mask, :]
 
 
-def reduce_LiDAR_beams(pts, severity):
-    s = [16, 8, 4][severity - 1]
-
-    if isinstance(pts, np.ndarray):
-        pts = torch.from_numpy(pts)
-    radius = torch.sqrt(pts[:, 0].pow(2) + pts[:, 1].pow(2) + pts[:, 2].pow(2))
-    sine_theta = pts[:, 2] / radius
-
-    theta = torch.asin(sine_theta)
-
-    top_ang = 0.1862
-    down_ang = -0.5353
-
-    beam_range = torch.zeros(32)
-    beam_range[0] = top_ang
-    beam_range[31] = down_ang
-
-    for i in range(1, 31):
-        beam_range[i] = beam_range[i - 1] - 0.023275
-
-    num_pts, _ = pts.size()
-    mask = torch.zeros(num_pts)
-    if s == 16:
-        for id in [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31]:
-            beam_mask = (theta < (beam_range[id - 1] - 0.012)) * (
-                theta > (beam_range[id] - 0.012)
-            )
-            mask = mask + beam_mask
-        mask = mask.bool()
-    elif s == 8:
-        for id in [1,  5,  9,  13, 17,  21, 25, 29]:
-            beam_mask = (theta < (beam_range[id - 1] - 0.012)) * (
-                theta > (beam_range[id] - 0.012)
-            )
-            mask = mask + beam_mask
-        mask = mask.bool()
-    elif s == 4:
-        for id in[1, 9, 17, 25]:
-            beam_mask = (theta < (beam_range[id - 1] - 0.012)) * (
-                theta > (beam_range[id] - 0.012)
-            )
-            mask = mask + beam_mask
-        mask = mask.bool()
-    else:
-        raise NotImplementedError
-
-    points = pts[mask]
-
-    return points.numpy()
-
-
 """ points missing """
 def simulate_missing_lidar_points(pts, severity):
-    s = [20, 40, 60][severity - 1]
-    torch.manual_seed(1000)
-    if isinstance(pts, np.ndarray):
-        pts = torch.from_numpy(pts)
-    size = pts.size(0)
-    nr_of_samps = round(size*((100-s)/100))
-    permutations = torch.randperm(size)
-    ind = permutations[:nr_of_samps]
-    points = pts[ind]
-    return points.numpy()
+    """
+    Simulates missing lidar points based on a given severity level.
 
+    Args:
+    pts: A numpy array of lidar points.
+    severity: An integer between 1 and 3, where 1 is the least severe and 3 is the most severe.
+
+    Returns:
+    A numpy array of lidar points with missing points.
+    """
+    s = [60, 75, 90][severity - 1]
+
+    size = pts.shape[0]
+    nr_of_samps = int(round(size * ((100 - s) / 100)))  # Calculate number of points to keep
+
+    permutations = np.random.permutation(size)  # Generate random permutation of indices
+    ind = permutations[:nr_of_samps]  # Select indices for points to keep
+
+    pts = pts[ind]  # Extract points based on selected indices
+
+    return pts
 
 
 '''  fog function'''

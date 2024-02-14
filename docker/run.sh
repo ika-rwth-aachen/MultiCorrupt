@@ -10,7 +10,7 @@ nuscenes_data_dir="/work/nuscenes"
 repo_dir=$PWD
 
 docker run \
---name data_create_container \
+--name multicorrupt_create_container \
 --rm \
 --gpus 'all,"capabilities=compute,utility,graphics"' \
 --env DISPLAY=${DISPLAY} \
