@@ -165,7 +165,7 @@ cd multicorrupt
 
 ```bash
 cd docker
-docker build -t data_create -f Dockerfile.data .
+docker build -t multicorrupt_create -f Dockerfile.data .
 ```
 
 #### Download Snowflakes
@@ -256,6 +256,7 @@ We thank the authors of
 - [mmdetection3d](https://github.com/open-mmlab/mmdetection3d)
 - [LiDAR_fog_sim](https://github.com/MartinHahner/LiDAR_fog_sim)
 - [LiDAR_snow_sim](https://github.com/SysCV/LiDAR_snow_sim)
+- [lidar-camera-robust-benchmark](https://github.com/kcyu2014/lidar-camera-robust-benchmark)
 - [RoboBEV](https://github.com/Daniel-xsy/RoboBEV)
 - [Robo3D](https://github.com/ldkong1205/Robo3D)
 
