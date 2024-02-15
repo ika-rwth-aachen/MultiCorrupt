@@ -69,11 +69,11 @@ if __name__ == '__main__':
         sweep_info = info['sweeps']
         
         if args.corruption == 'pointsreducing':
-            new_point = lidar.simulate_missing_lidar_points(point, args.severity)
+            new_point = lidar.pointsreducing(point, args.severity)
             for n in sweep_info:
                 sweep_path = n['data_path'][16:]
                 sweep_point = np.fromfile(os.path.join(args.root_folder, sweep_path), dtype=np.float32, count=-1).reshape([-1, 5]) 
-                new_sweep_point = lidar.simulate_missing_lidar_points(sweep_point, args.severity)
+                new_sweep_point = lidar.pointsreducing(sweep_point, args.severity)
                 sweep_path = os.path.join(args.dst_folder, sweep_path)
                 new_sweep_point.astype(np.float32).tofile(sweep_path)
 
@@ -211,7 +211,7 @@ if __name__ == '__main__':
         point = np.fromfile(os.path.join(args.root_folder, lidar_path), dtype=np.float32, count=-1).reshape([-1, 5]) 
         
         if args.corruption == 'pointsreducing':
-            new_point = lidar.simulate_missing_lidar_points(point, args.severity)
+            new_point = lidar.pointsreducing(point, args.severity)
 
         elif args.corruption == 'beamsreducing':
             new_point = lidar.reduce_LiDAR_beamsV2(point, args.severity)

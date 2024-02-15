@@ -133,7 +133,7 @@ def reduce_LiDAR_beamsV2(pts, severity):
 
 
 """ points missing """
-def simulate_missing_lidar_points(pts, severity):
+def pointsreducing(pts, severity):
     """
     Simulates missing lidar points based on a given severity level.
 
@@ -144,7 +144,7 @@ def simulate_missing_lidar_points(pts, severity):
     Returns:
     A numpy array of lidar points with missing points.
     """
-    s = [60, 75, 90][severity - 1]
+    s = [70, 80, 90][severity - 1]
 
     size = pts.shape[0]
     nr_of_samps = int(round(size * ((100 - s) / 100)))  # Calculate number of points to keep
