@@ -21,7 +21,7 @@ severity_level = args.severity_level
 plot_type = args.plot_type
 scene_name = args.scene_name
 
-nusc = NuScenes(version='v1.0-trainval', dataroot=f'/workspace/corrupted_nuscenes/robust-nuscenes/{corruption_type}/{severity_level}', verbose=False)
+nusc = NuScenes(version='v1.0-trainval', dataroot=f'/workspace/multicorrupt/robust-nuscenes/{corruption_type}/{severity_level}', verbose=False)
 
 
 def get_scene_index_by_name(nusc, scene_name):
@@ -87,7 +87,7 @@ def render_and_save_image(sample_token, output_path, plot_type):
     
     # Resize
     img = Image.open(output_path)
-    img = img.resize((img.width // downscale_factor, img.height // downscale_factor), Image.ANTIALIAS)
+    img = img.resize((img.width // downscale_factor, img.height // downscale_factor), Image.LANCZOS)
     img.save(output_path)
     plt.close()
 

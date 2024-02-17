@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Set the path to the Python executable and your script
-PYTHON_EXEC=/opt/conda/bin/python
-SCRIPT_PATH=/workspace/helper/generate_image.py
+PYTHON_EXEC=/usr/bin/python3
+SCRIPT_PATH=/workspace/helper/generate_gif.py
 
 # List of severity levels
 SEVERITY_LEVELS=("1" "2" "3")
