@@ -87,7 +87,7 @@ def render_and_save_image(sample_token, output_path, plot_type):
     
     # Resize
     img = Image.open(output_path)
-    img = img.resize((img.width // downscale_factor, img.height // downscale_factor), Image.LANCZOS)
+    img = img.resize((img.width // downscale_factor, img.height // downscale_factor))
     img.save(output_path)
     plt.close()
 
@@ -117,11 +117,11 @@ while current_sample_token != '':
 # Combine saved images into a GIF animation
 images = []
 for image_path in image_paths:
-    img = Image.open(image_path)
+    img = Image.open(image_path).convert("P")
     images.append(img)
 
 gif_path = f'{corruption_type}_{severity_level}_{plot_type}_{scene_name}_scene_animation.gif'
-images[0].save(gif_path, save_all=True, append_images=images[1:], duration=100, loop=0)
+images[0].save(gif_path, save_all=True, append_images=images[1:], duration=100, loop=0, optimize=False)
 
 # Remove temporary image files
 for image_path in image_paths:
