@@ -87,7 +87,7 @@ def render_and_save_image(sample_token, output_path, plot_type):
     
     # Resize
     img = Image.open(output_path)
-    img = img.resize((img.width // downscale_factor, img.height // downscale_factor), Image.ANTIALIAS)
+    img = img.resize((img.width // downscale_factor, img.height // downscale_factor))
     img.save(output_path)
     plt.close()
 
@@ -107,8 +107,8 @@ if not os.path.exists('tmp'):
 image_count = 0
 frame_count = 0
 while current_sample_token != '':
-    if frame_count > 1 and image_count < 25:
-        output_path = f"tmp/{corruption_type}_{severity_level}_{frame_count}.jpg"
+    if frame_count > 1 and image_count < 20:
+        output_path = f"tmp/{corruption_type}_{severity_level}_{str(frame_count).zfill(4)}.jpg"
         render_and_save_image(current_sample_token, output_path, plot_type)
         image_count += 1
 
