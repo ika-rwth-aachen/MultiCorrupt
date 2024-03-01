@@ -16,6 +16,8 @@
 
 > **Abstract:** Multi-modal 3D object detection models for autonomous driving have demonstrated exceptional performance on computer vision benchmarks like nuScenes. However, their reliance on densely sampled LiDAR point clouds and meticulously calibrated sensor arrays poses challenges for real-world applications. Issues such as sensor misalignment, miscalibration, and disparate sampling frequencies lead to spatial and temporal misalignment in data from LiDAR and cameras. Additionally, the integrity of LiDAR and camera data is often compromised by adverse environmental conditions such as inclement weather, leading to occlusions and noise interference. To address this challenge, we introduce MultiCorrupt, a comprehensive benchmark designed to evaluate the robustness of multi-modal 3D object detectors against ten distinct types of corruptions.
 
+Preprint: [https://arxiv.org/abs/2402.11677](https://arxiv.org/abs/2402.11677)
+
 <!-- omit in toc -->
 ## Overview
 - [Corruption Types](#corruption-types)
@@ -270,5 +272,12 @@ for their open source contribution which made this project possible.
 
 ## Citation
 ```
-TBD
+@misc{beemelmanns2024multicorrupt,
+      title={MultiCorrupt: A Multi-Modal Robustness Dataset and Benchmark of LiDAR-Camera Fusion for 3D Object Detection}, 
+      author={Till Beemelmanns and Quan Zhang and Lutz Eckstein},
+      year={2024},
+      eprint={2402.11677},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
 ```
