@@ -288,6 +288,8 @@ We recommend to create the following folder structure for MultiCorrupt using the
     .
     .
 ```
+A script that generates all corruptions for all severity levels will be provided soon.
+
 
 ## TODOs
 - [ ] Add more visualization
