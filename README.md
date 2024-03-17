@@ -167,7 +167,7 @@ cd multicorrupt
 
 ```bash
 cd docker
-docker build -t multicorrupt_create -f Dockerfile.data .
+docker build -t multicorrupt_create -f Dockerfile .
 ```
 
 #### Download Snowflakes
@@ -186,20 +186,27 @@ rm snowflakes.zip
 
 ### Image Corruption Generation
 
-Run the following script to generate a corrupted image dataset:
+Run the following script to generate a corrupted image data:
 
 ```bash
-converter/img_converter.py
-```
+usage: img_converter.py [-h] [-c N_CPUS] [-a {snow,fog,temporalmisalignment,brightness,dark,missingcamera,motionblur}] [-r ROOT_FOLDER]
+                        [-d DST_FOLDER] [-f SEVERITY] [--seed SEED]
 
-Inside the script, you can customize the parameters:
+Generate corrupted nuScenes dataset for image data
 
-```bash
---corruption: Choose the corruption type from 'snow', 'fog', 'temporalmisalignment', 'brightness', 'dark', 'missingcamera', 'motionblur'.
---root_folder: The directory of the nuScenes dataset.
---dst_folder: The destination folder for the generated dataset.
---severity: Severity level {1, 2, 3}.
---n_cpus: Number of CPUs to use for processing.
+options:
+  -h, --help            show this help message and exit
+  -c N_CPUS, --n_cpus N_CPUS
+                        number of CPUs that should be used
+  -a {snow,fog,temporalmisalignment,brightness,dark,missingcamera,motionblur}, --corruption {snow,fog,temporalmisalignment,brightness,dark,missingcamera,motionblur}
+                        corruption type
+  -r ROOT_FOLDER, --root_folder ROOT_FOLDER
+                        root folder of dataset
+  -d DST_FOLDER, --dst_folder DST_FOLDER
+                        savefolder of dataset
+  -f SEVERITY, --severity SEVERITY
+                        severity level {1,2,3}
+  --seed SEED           random seed
 ```
 
 ### Example
@@ -215,19 +222,29 @@ python converter/img_converter.py \
 
 ### LiDAR Corruption Generation
 
-Run the following script to generate a corrupted image dataset:
+Run the following script to generate a corrupted LiDAR data:
 
 ```bash
-converter/lidar_converter.py
-```
+usage: lidar_converter.py [-h] [-c N_CPUS] [-a {pointsreducing,beamsreducing,snow,fog,copy,spatialmisalignment,temporalmisalignment,motionblur}] [-s SWEEP] [-r ROOT_FOLDER]
+                          [-d DST_FOLDER] [-f SEVERITY] [--seed SEED]
 
-```bash
---corruption: Choose the corruption type from 'pointsreducing', 'beamsreducing', 'snow', 'fog', 'copy', 'spatialmisalignment', 'temporalmisalignment', 'motionblur'.
---sweep: If apply for sweep LiDAR (true/false).
---root_folder: The directory of the nuScenes dataset.
---dst_folder: The destination folder for the generated dataset.
---severity: Severity level {1, 2, 3}.
---n_cpus: Number of CPUs to use for processing.
+Generate corrupted nuScenes dataset for LiDAR
+
+options:
+  -h, --help            show this help message and exit
+  -c N_CPUS, --n_cpus N_CPUS
+                        number of CPUs that should be used
+  -a {pointsreducing,beamsreducing,snow,fog,copy,spatialmisalignment,temporalmisalignment,motionblur}, --corruption {pointsreducing,beamsreducing,snow,fog,copy,spatialmisalignment,temporalmisalignment,motionblur}
+                        corruption type
+  -s SWEEP, --sweep SWEEP
+                        if apply for sweep LiDAR
+  -r ROOT_FOLDER, --root_folder ROOT_FOLDER
+                        root folder of dataset
+  -d DST_FOLDER, --dst_folder DST_FOLDER
+                        savefolder of dataset
+  -f SEVERITY, --severity SEVERITY
+                        severity level {1,2,3}
+  --seed SEED           random seed
 ```
 
 ### Example
@@ -240,6 +257,36 @@ python3 converter/lidar_converter.py \
 --severity 3 \
 --n_cpus 64 \
 --sweep true
+```
+
+### MultiCorrupt Folder Structure
+We recommend to create the following folder structure for MultiCorrupt using the
+`lidar_converter.py` and `img_converter.py` scripts.
+```
+-- multicorrupt
+    |-- beamsreducing
+    |   |-- 1
+    |   |-- 2
+    |   `-- 3
+    |-- brightness
+    |   |-- 1
+    |   |-- 2
+    |   `-- 3
+    |-- dark
+    |   |-- 1
+    |   |-- 2
+    |   `-- 3
+    |-- fog
+    |   |-- 1
+    |   |-- 2
+    |   `-- 3
+    |-- missingcamera
+    |   |-- 1
+    |   |-- 2
+    |   `-- 3
+    .
+    .
+    .
 ```
 
 ## TODOs
