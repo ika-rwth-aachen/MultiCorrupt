@@ -184,6 +184,21 @@ rm snowflakes.zip
 
 ## Usage
 
+### Docker Container Setup
+We recommend to use [run.sh](docker/run.sh) to start the
+`multicorrupt_create_container` in order to generate MultiCorrupt.
+Please modify the following pathes according to your local setup.
+
+```
+multicorrupt_data_dir="/work/multicorrupt"
+nuscenes_data_dir="/work/nuscenes"
+```
+Please make sure that you have downloaded [nuScenes](https://www.nuscenes.org/)
+ to `nuscenes_data_dir`.
+
+After setting up the container, you could use VS Code to attach to the container 
+or directly execute the following scripts.
+
 ### Image Corruption Generation
 
 Run the following script to generate a corrupted image data:
@@ -260,8 +275,8 @@ python3 converter/lidar_converter.py \
 ```
 
 ### MultiCorrupt Folder Structure
-We recommend to create the following folder structure for MultiCorrupt using the
-`lidar_converter.py` and `img_converter.py` scripts.
+We recommend to create the following folder structure for MultiCorrupt using 
+`lidar_converter.py` and `img_converter.py`:
 ```
 -- multicorrupt
     |-- beamsreducing
