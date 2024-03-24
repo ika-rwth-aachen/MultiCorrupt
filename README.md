@@ -156,21 +156,21 @@ where $c$ denotes the type of corruption, $s$ represents the level of severity, 
 
 ## Installation
 
-#### Clone this repository:
+### Clone this repository:
 
 ```bash
 git clone https://github.com/ika-rwth-aachen/MultiCorrupt.git
 cd multicorrupt
 ```
 
-#### Build the Docker image:
+### Build the Docker image:
 
 ```bash
 cd docker
 docker build -t multicorrupt_create -f Dockerfile .
 ```
 
-#### Download Snowflakes
+### Download Snowflakes
 We use [LiDAR_snow_sim](https://github.com/SysCV/LiDAR_snow_sim) to simulate snow in LiDAR point clouds. To make the
 snow simulation run we need to download the snowflakes:
 
