@@ -112,28 +112,30 @@ Preprint: [https://arxiv.org/abs/2402.11677](https://arxiv.org/abs/2402.11677)
 *Note: Right click and click on `Open Image in new tab` to enlarge an animation*
 
 ## News
-- [01.02.2024] Initial Release with **10 corruption types** and **5 evaluated models**
+- [28.03.2024] **v0.0.3** Changed severity configuration for *Brightness*, reevaluated all models and metrics
+- [17.02.2024] **v0.0.2** Changed severity configuration for *Pointsreducing*, reevaluated all models and metrics
+- [01.02.2024] **v0.0.1** Initial Release with **10 corruption types** and **5 evaluated models**
 
 ## Benchmark Results
 ### Resistance Ability (RA) computed with NDS metric
 
 | Model                                                           | Clean     | Beams Red.   | Brightness   | Darkness   | Fog       | Missing Cam.   | Motion Blur   | Points Red.   | Snow      | Spatial Mis.   | Temporal Mis.   | mRA       |
 |:----------------------------------------------------------------|:----------|:-------------|:-------------|:-----------|:----------|:---------------|:--------------|:--------------|:----------|:---------------|:----------------|:----------|
-| [CMT](https://github.com/junjie18/CMT)                          | 0.729     | **0.786**    | 0.985        | 0.948      | **0.806** | 0.974          | 0.841         | **0.925**     | **0.833** | **0.809**      | **0.788**       | **0.870** |
-| [Sparsefusion](https://github.com/yichen928/SparseFusion)       | **0.732** | 0.689        | 0.992        | 0.963      | 0.767     | 0.954          | 0.848         | 0.879         | 0.770     | 0.714          | 0.777           | 0.835     |
-| [BEVfusion](https://github.com/mit-han-lab/bevfusion)           | 0.714     | 0.676        | 0.987        | 0.969      | 0.752     | 0.974          | **0.866**     | 0.872         | 0.774     | 0.705          | 0.742           | 0.832     |
-| [TransFusion](https://github.com/XuyangBai/TransFusion)         | 0.708     | 0.633        | **0.998**    | **0.988**  | 0.754     | **0.985**      | 0.826         | 0.851         | 0.748     | 0.685          | 0.777           | 0.824     |
-| [DeepInteraction](https://github.com/fudan-zvg/DeepInteraction) | 0.691     | 0.655        | 0.984        | 0.929      | 0.583     | 0.842          | 0.832         | 0.882         | 0.759     | 0.731          | 0.768           | 0.796     |
+| [CMT](https://github.com/junjie18/CMT)                          | 0.729     | **0.786**    | 0.937        | 0.948      | **0.806** | 0.974          | 0.841         | **0.925**     | **0.833** | **0.809**      | **0.788**       | **0.865** |
+| [Sparsefusion](https://github.com/yichen928/SparseFusion)       | **0.732** | 0.689        | 0.975        | 0.963      | 0.767     | 0.954          | 0.848         | 0.879         | 0.770     | 0.714          | 0.777           | 0.834     |
+| [BEVfusion](https://github.com/mit-han-lab/bevfusion)           | 0.714     | 0.676        | 0.967        | 0.969      | 0.752     | 0.974          | **0.866**     | 0.872         | 0.774     | 0.705          | 0.742           | 0.830     |
+| [TransFusion](https://github.com/XuyangBai/TransFusion)         | 0.708     | 0.633        | **0.993**    | **0.988**  | 0.754     | **0.985**      | 0.826         | 0.851         | 0.748     | 0.685          | 0.777           | 0.824     |
+| [DeepInteraction](https://github.com/fudan-zvg/DeepInteraction) | 0.691     | 0.655        | 0.969        | 0.929      | 0.583     | 0.842          | 0.832         | 0.882         | 0.759     | 0.731          | 0.768           | 0.795     |
 
 
 ### Relative Resistance Ability (RRA) computed with NDS metric and baseline BEVfusion
 | Model                                                           | Clean     | Beams Red.   | Brightness   | Darkness   | Fog       | Missing Cam.   | Motion Blur   | Points Red.   | Snow      | Spatial Mis.   | Temporal Mis.   | mRRA      |
 |:----------------------------------------------------------------|:----------|:-------------|:-------------|:-----------|:----------|:---------------|:--------------|:--------------|:----------|:---------------|:----------------|:----------|
-| [BEVfusion](https://github.com/mit-han-lab/bevfusion)           | 0.714     | -----        | -----        | -----      | -----     | -----          | -----         | -----         | -----     | -----          | -----           | -----     |
-| [CMT](https://github.com/junjie18/CMT)                          | 0.729     | **18.642**   | 1.821        | -0.096     | **9.398** | **2.041**      | -0.841        | **8.213**     | **9.887** | **17.053**     | **8.448**       | **7.457** |
-| [Sparsefusion](https://github.com/yichen928/SparseFusion)       | **0.732** | 4.264        | **2.913**    | **1.821**  | 4.429     | 0.297          | **0.280**     | 3.242         | 1.887     | 3.699          | 7.228           | 3.006     |
-| [TransFusion](https://github.com/XuyangBai/TransFusion)         | 0.708     | -7.210       | 0.270        | 1.146      | -0.552    | 0.340          | -5.412        | -3.296        | -4.220    | -3.626         | 3.850           | -1.871    |
-| [DeepInteraction](https://github.com/fudan-zvg/DeepInteraction) | 0.691     | -6.361       | -3.551       | -7.215     | -25.037   | -16.386        | -7.077        | -2.188        | -5.149    | 0.212          | 0.145           | -7.261    |
+| [BEVfusion](https://github.com/mit-han-lab/bevfusion)           | 0.714     | ---        | ---        | ---      | ---     | ---          | ---         | ---         | ---     | ---          | ---           | ---     |
+| [CMT](https://github.com/junjie18/CMT)                          | 0.729     | **18.642**   | -1.138       | -0.096     | **9.398** | **2.041**      | -0.841        | **8.213**     | **9.887** | **17.053**     | **8.448**       | **7.161** |
+| [Sparsefusion](https://github.com/yichen928/SparseFusion)       | **0.732** | 4.264        | **3.179**    | **1.821**  | 4.429     | 0.297          | **0.280**     | 3.242         | 1.887     | 3.699          | 7.228           | 3.033     |
+| [TransFusion](https://github.com/XuyangBai/TransFusion)         | 0.708     | -7.210       | 1.799        | 1.146      | -0.552    | 0.340          | -5.412        | -3.296        | -4.220    | -3.626         | 3.850           | -1.718    |
+| [DeepInteraction](https://github.com/fudan-zvg/DeepInteraction) | 0.691     | -6.361       | -3.150       | -7.215     | -25.037   | -16.386        | -7.077        | -2.188        | -5.149    | 0.212          | 0.145           | -7.221    |
 
 ## Metrics
 We adhere to the official nuScenes metric definition for computing the NDS and mAP metrics on the MultiCorrupt dataset. To quantitatively compare the performance between the corrupted dataset and the clean nuScenes datasets, we use a metric called the *Resistance Ability* (RA). This metric is calculated across the different severity levels with 

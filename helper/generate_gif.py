@@ -5,10 +5,11 @@ from nuscenes.nuscenes import NuScenes
 import argparse
 
 def parse_arguments():
+    valid_plot_types = ['bev', 'front_camera', 'multi_view_camera']
     parser = argparse.ArgumentParser(description='Render corrupted nuScenes images and create a GIF animation.')
     parser.add_argument('-c', '--corruption_type', help='Corruption type', type=str, default='motionblur')
     parser.add_argument('-s', '--severity_level', help='Severity level (1, 2, 3)', type=str, default='1')
-    parser.add_argument('-p', '--plot_type', help='Plot type (bev, front_camera, multi_view_camera)', type=str, default='multi_view_camera')
+    parser.add_argument('-p', '--plot_type', help='Plot type', type=str, default='multi_view_camera', choices=valid_plot_types)
     parser.add_argument('-n', '--scene_name', help='Scene name', type=str, default='scene-0097')
     arguments = parser.parse_args()
     return arguments
