@@ -34,19 +34,19 @@ def mb_getMotionBlurKernel(width, sigma):
     return k/Z
 
 def mb_shift(image, dx, dy):
-    if(dx < 0):
+    if (dx < 0):
         shifted = np.roll(image, shift=image.shape[1]+dx, axis=1)
         shifted[:, dx:] = shifted[:, dx-1:dx]
-    elif(dx > 0):
+    elif (dx > 0):
         shifted = np.roll(image, shift=dx, axis=1)
         shifted[:, :dx] = shifted[:, dx:dx+1]
     else:
         shifted = image
 
-    if(dy < 0):
+    if (dy < 0):
         shifted = np.roll(shifted, shift=image.shape[0]+dy, axis=0)
         shifted[dy:, :] = shifted[dy-1:dy, :]
-    elif(dy > 0):
+    elif (dy > 0):
         shifted = np.roll(shifted, shift=dy, axis=0)
         shifted[:dy, :] = shifted[dy:dy+1, :]
     return shifted
@@ -151,7 +151,7 @@ def next_power_of_2(x):
     return 1 if x == 0 else 2 ** (x - 1).bit_length()
 
 def noise(x, severity):
-    s = [2.,3.,4.][severity - 1]
+    s = [2., 3., 4.][severity - 1]
     attenuation_strength = 0.8
     backscatter_strength = 0.5
     shape = np.array(x).shape
@@ -160,25 +160,24 @@ def noise(x, severity):
 
     x = np.array(x) / 255.
     max_val = x.max()
-    
+
     # Generate the basic fog effect
     fog_effect = plasma_fractal(mapsize=map_size, wibbledecay=1.7)[:shape[0], :shape[1]]
-    
+
     # Generate a spatially varying attenuation map and apply it to the fog effect
     attenuation_map = plasma_fractal(mapsize=map_size)[:shape[0], :shape[1]]
     fog_effect *= (1 - attenuation_strength * attenuation_map)
-    
+
     # Generate a spatially varying backscatter map and apply it to the fog effect
     backscatter_map = plasma_fractal(mapsize=map_size)[:shape[0], :shape[1]]
     fog_effect *= (1 + backscatter_strength * backscatter_map)
-
 
 
     if len(shape) < 3 or shape[2] < 3:
         x += s * fog_effect
     else:
         x += s * fog_effect[..., np.newaxis]
-        
+ 
     return np.clip(x * max_val / (max_val + s), 0, 1) * 255
 
 
@@ -186,7 +185,7 @@ def fog(x, severity):
     img = noise(x, severity)
     img_f = img / 255.0 
     (row, col, chs) = img.shape
-    beta = [0.0005,0.001,0.002][severity - 1]
+    beta = [0.0005, 0.001, 0.002][severity - 1]
     A = 0.5
     size = math.sqrt(max(row, col))
     y1, x1 = int(row * 0.65), int(col * 0.1)
@@ -198,7 +197,7 @@ def fog(x, severity):
                 max(0, max(l - x2, x1 - l))**2
             )
             
-            d =  2.0* d_rect*(1+np.random.rand()/4) + size
+            d = 2.0* d_rect*(1+np.random.rand()/4) + size
             td = math.exp(-beta * d)
             img_f[j][l][:] = img_f[j][l][:] * td + A * (1 - td)
     return img_f*255
@@ -224,19 +223,19 @@ def _motion_blur(x, radius, sigma, angle):
     return blurred
 
 def shift(image, dx, dy):
-    if(dx < 0):
+    if (dx < 0):
         shifted = np.roll(image, shift=image.shape[1]+dx, axis=1)
         shifted[:, dx:] = shifted[:, dx-1:dx]
-    elif(dx > 0):
+    elif (dx > 0):
         shifted = np.roll(image, shift=dx, axis=1)
         shifted[:, :dx] = shifted[:, dx:dx+1]
     else:
         shifted = image
 
-    if(dy < 0):
+    if (dy < 0):
         shifted = np.roll(shifted, shift=image.shape[0]+dy, axis=0)
         shifted[dy:, :] = shifted[dy-1:dy, :]
-    elif(dy > 0):
+    elif (dy > 0):
         shifted = np.roll(shifted, shift=dy, axis=0)
         shifted[:dy, :] = shifted[dy:dy+1, :]
     return shifted
