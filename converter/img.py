@@ -8,9 +8,10 @@ import skimage as sk
 seed = 1000
 np.random.seed(seed)
 
+
 """ brightness """
 def brightness(x, severity):
-    s = [.1,  .3, .5][severity - 1]
+    s = [.5,  .6, .7][severity - 1]
 
     x = np.array(x) / 255.
 
@@ -35,19 +36,19 @@ def mb_getMotionBlurKernel(width, sigma):
 def mb_shift(image, dx, dy):
     if(dx < 0):
         shifted = np.roll(image, shift=image.shape[1]+dx, axis=1)
-        shifted[:,dx:] = shifted[:,dx-1:dx]
+        shifted[:, dx:] = shifted[:, dx-1:dx]
     elif(dx > 0):
         shifted = np.roll(image, shift=dx, axis=1)
-        shifted[:,:dx] = shifted[:,dx:dx+1]
+        shifted[:, :dx] = shifted[:, dx:dx+1]
     else:
         shifted = image
 
     if(dy < 0):
         shifted = np.roll(shifted, shift=image.shape[0]+dy, axis=0)
-        shifted[dy:,:] = shifted[dy-1:dy,:]
+        shifted[dy:, :] = shifted[dy-1:dy, :]
     elif(dy > 0):
         shifted = np.roll(shifted, shift=dy, axis=0)
-        shifted[:dy,:] = shifted[dy:dy+1,:]
+        shifted[:dy, :] = shifted[dy:dy+1, :]
     return shifted
 
 def imgmb(x, radius, sigma, angle):
@@ -67,14 +68,13 @@ def imgmb(x, radius, sigma, angle):
         blurred = blurred + kernel[i] * shifted
     return blurred
 
-def img_motion_blur(x, severity):
+def motion_blur(x, severity):
     s = [0.06, 0.1, 0.13][severity - 1]
     x = np.array(x)
 
     angle = np.random.uniform(-45, 45)
     x = imgmb(x, radius=15, sigma=s, angle=angle)
     return np.clip(x, 0, 255)
-
 
 
 
@@ -92,7 +92,7 @@ def poisson_gaussian_noise(x, severity):
     x = np.clip(x + np.random.normal(size=x.shape, scale= c_gauss), 0, 1) * 255
     return np.uint8(x)
 
-def low_light(x, severity):
+def darkness(x, severity):
     s = [0.60, 0.40, 0.30][severity-1]
     x = np.array(x) / 255.
     x_scaled = imadjust(x, x.min(), x.max(), 0, s, gamma=2.) * 255
@@ -188,25 +188,23 @@ def fog(x, severity):
     (row, col, chs) = img.shape
     beta = [0.0005,0.001,0.002][severity - 1]
     A = 0.5
-    size = math.sqrt(max(row, col))  
+    size = math.sqrt(max(row, col))
     y1, x1 = int(row * 0.65), int(col * 0.1)
     y2, x2 = int(row * 0.99), int(col * 0.85)
-    for j in range(row):        
+    for j in range(row):
         for l in range(col):
             d_rect = math.sqrt(
                 max(0, max(j - y2, y1 - j))**2 +
                 max(0, max(l - x2, x1 - l))**2
             )
             
-            d =  2.0* d_rect*(1+np.random.rand()/4) + size            
+            d =  2.0* d_rect*(1+np.random.rand()/4) + size
             td = math.exp(-beta * d)
-            img_f[j][l][:] = img_f[j][l][:] * td + A * (1 - td) 
-    return img_f*255  
+            img_f[j][l][:] = img_f[j][l][:] * td + A * (1 - td)
+    return img_f*255
 
 
 
-
-    
 """snow function"""
 def _motion_blur(x, radius, sigma, angle):
     width = getOptimalKernelWidth1D(radius, sigma)
@@ -228,19 +226,19 @@ def _motion_blur(x, radius, sigma, angle):
 def shift(image, dx, dy):
     if(dx < 0):
         shifted = np.roll(image, shift=image.shape[1]+dx, axis=1)
-        shifted[:,dx:] = shifted[:,dx-1:dx]
+        shifted[:, dx:] = shifted[:, dx-1:dx]
     elif(dx > 0):
         shifted = np.roll(image, shift=dx, axis=1)
-        shifted[:,:dx] = shifted[:,dx:dx+1]
+        shifted[:, :dx] = shifted[:, dx:dx+1]
     else:
         shifted = image
 
     if(dy < 0):
         shifted = np.roll(shifted, shift=image.shape[0]+dy, axis=0)
-        shifted[dy:,:] = shifted[dy-1:dy,:]
+        shifted[dy:, :] = shifted[dy-1:dy, :]
     elif(dy > 0):
         shifted = np.roll(shifted, shift=dy, axis=0)
-        shifted[:dy,:] = shifted[dy:dy+1,:]
+        shifted[:dy, :] = shifted[dy:dy+1, :]
     return shifted
 
 def getOptimalKernelWidth1D(radius, sigma):
@@ -277,8 +275,8 @@ def snow(x, severity=1):
          (0.5,  3, 0.8, 10, 10, 0.8)][severity - 1]
 
     x = np.array(x, dtype=np.float32) / 255.
-    snow_layer = np.random.normal(size=x.shape[:2], loc=s[0],
-                                  scale=0.3)  
+    snow_layer = np.random.normal(
+        size=x.shape[:2], loc=s[0], scale=0.3)
     
     snow_layer = clipped_zoom(snow_layer[..., np.newaxis], s[1])
     snow_layer[snow_layer < s[2]] = 0
@@ -288,22 +286,14 @@ def snow(x, severity=1):
     snow_layer = _motion_blur(snow_layer, radius=s[3], sigma=s[4], angle=np.random.uniform(-135, -45))
 
     # The snow layer is rounded and cropped to the img dims
-    snow_layer = np.round(snow_layer * 255).astype(np.uint8) / 255.
+    snow_layer = np.round(snow_layer * 255).astype(np.uint8) / 255.0
     snow_layer = snow_layer[..., np.newaxis]
     snow_layer = snow_layer[:x.shape[0], :x.shape[1], :]
 
-    x = s[5] * x + (1 - s[5]) * np.maximum(x, cv2.cvtColor(x,
-                                                            cv2.COLOR_RGB2GRAY).reshape(
-        x.shape[0], x.shape[1], 1) * 1.5 + 0.5)
+    x = s[5] * x + (1 - s[5]) * np.maximum(x, cv2.cvtColor(x, cv2.COLOR_RGB2GRAY).reshape(x.shape[0], x.shape[1], 1) * 1.5 + 0.5)
     
     # Adjust the brightness of the image (brightness factor is 0.9)
     brightness_factor = 0.9
-    image = x * brightness_factor    
+    image = x * brightness_factor
     
-    try:
-        return np.clip(image + snow_layer + np.rot90(snow_layer, k=2), 0, 1) * 255
-    except ValueError:
-        print('ValueError for Snow, Exception handling')
-        image[:snow_layer.shape[0], :snow_layer.shape[1]] += snow_layer + np.rot90(
-            snow_layer, k=2)
-        return np.clip(image, 0, 1) * 255
+    return np.clip(image + snow_layer + np.rot90(snow_layer, k=2), 0, 1) * 255

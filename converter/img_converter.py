@@ -13,7 +13,7 @@ IMG_CORRUPTIONS = ['snow', 'fog', 'temporalmisalignment', 'brightness', 'dark',
                    'missingcamera', 'motionblur']
 
 def parse_arguments():
-    parser = argparse.ArgumentParser(description='Generate corrupted nuScenes dataset for Images')
+    parser = argparse.ArgumentParser(description='Generate corrupted nuScenes dataset for image data')
     parser.add_argument('-c', '--n_cpus', help='number of CPUs that should be used', type=int,
                         default=4)
     parser.add_argument('-a', '--corruption', help='corruption type', type=str,
@@ -86,10 +86,10 @@ if __name__ == '__main__':
                     new_image = img.brightness(image, args.severity)
 
                 elif args.corruption == 'motionblur':
-                    new_image = img.img_motion_blur(image, args.severity)
+                    new_image = img.motion_blur(image, args.severity)
 
                 elif args.corruption == 'dark':
-                    new_image = img.low_light(image, args.severity)
+                    new_image = img.darkness(image, args.severity)
 
                 elif args.corruption == 'missingcamera':
                     s = [0.2, 0.4, 0.6][args.severity - 1]
@@ -105,6 +105,6 @@ if __name__ == '__main__':
                 os.makedirs(os.path.dirname(os.path.join(args.dst_folder, new_data_path)), exist_ok=True)
                 cv2.imwrite(os.path.join(args.dst_folder, new_data_path), cv2.cvtColor(new_image, cv2.COLOR_RGB2BGR))
 
-    n = len(all_files)
+    n_files = len(all_files)
     with mp.Pool(processes=args.n_cpus) as pool:
-        l = list(tqdm(pool.imap(_map, range(n)), total=n))
+        l = list(tqdm(pool.imap(_map, range(n_files)), total=n_files))
