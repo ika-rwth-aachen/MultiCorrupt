@@ -306,12 +306,37 @@ We recommend to create the following folder structure for MultiCorrupt using
     .
     .
 ```
-A script that generates all corruptions for all severity levels will be provided soon.
+
+### MultiCorrupt Evaluation
+If you have created MultiCorrupt in the structure above, we recommend you to use
+our simple [evaluation script](helper/multicorrupt_evaluation.sh) that iterates over
+the whole dataset, executes the evaluation and extracts the NDS and mAP metrics.
+
+In the script you would need to replace the pathes for `multicorrupt_root`,
+`nuscenes_data_dir` and `logfile` according to your setup.
+```bash
+#!/bin/bash
+
+# List of corruptions and severity levels
+corruptions=("beamsreducing" "brightness" "dark" "fog" "missingcamera" "motionblur" "pointsreducing" "snow" "spatialmisalignment" "temporalmisalignment")
+severity_levels=("1" "2" "3")
+
+# Directory paths
+multicorrupt_root="/workspace/multicorrupt/"
+nuscenes_data_dir="/workspace/data/nuscenes"
+logfile="/workspace/evaluation_log.txt"
+
+.
+.
+.
+```
+
 
 
 ## TODOs
 - [ ] Add more visualization
 - [ ] Add contribution guidelines
+
 
 ## Contribution
 - **Coming Soon**
