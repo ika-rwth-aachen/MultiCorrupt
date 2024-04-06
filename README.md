@@ -112,7 +112,7 @@ Preprint: [https://arxiv.org/abs/2402.11677](https://arxiv.org/abs/2402.11677)
 *Note: Right click and click on `Open Image in new tab` to enlarge an animation*
 
 ## News
-- [30.30.2024] **MultiCorrupt** has been accepted to [IEEE Intelligent Vehicles Symposium (IV)](https://ieee-iv.org/2024/)
+- [30.03.2024] **MultiCorrupt** has been accepted to [IEEE Intelligent Vehicles Symposium (IV)](https://ieee-iv.org/2024/)
 - [28.03.2024] **v0.0.3** Changed severity configuration for *Brightness*, reevaluated all models and metrics
 - [17.02.2024] **v0.0.2** Changed severity configuration for *Pointsreducing*, reevaluated all models and metrics
 - [01.02.2024] **v0.0.1** Initial Release with **10 corruption types** and **5 evaluated models**
