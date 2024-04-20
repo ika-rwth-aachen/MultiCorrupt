@@ -4,9 +4,10 @@
   <h3 align="center"><strong>MultiCorrupt: A Multi-Modal Robustness Dataset and Benchmark of LiDAR-Camera Fusion for 3D Object Detection</strong></h3>
 
   <p align="center">
-      <a href="https://google.com" target='_blank'>Till Beemelmanns</a><sup>1</sup>&nbsp;&nbsp;
+      <a href="https://www.linkedin.com/in/tillbeemelmanns/" target='_blank'>Till Beemelmanns</a><sup>1</sup>&nbsp;&nbsp;
       <a href="https://google.com" target='_blank'>Quan Zhang</a><sup>2</sup>&nbsp;&nbsp;
-      <a href="https://google.com" target='_blank'>Lutz Eckstein</a><sup>1</sup>&nbsp;&nbsp;
+      <a href="https://www.linkedin.com/in/christiangeller/" target='_blank'>Christian Geller</a><sup>2</sup>&nbsp;&nbsp;
+      <a href="https://www.ika.rwth-aachen.de/de/institut/team/univ-prof-dr-ing-lutz-eckstein.html" target='_blank'>Lutz Eckstein</a><sup>1</sup>&nbsp;&nbsp;
     <br>
     <small><sup>1</sup>Institute for Automotive Engineering, RWTH Aachen University, Germany&nbsp;&nbsp;</small>
     <small><sup>2</sup>Department of Electrical Engineering and Computer Science, TU Berlin, Germany&nbsp;&nbsp;</small>
