@@ -65,15 +65,13 @@ if __name__ == '__main__':
         infos = pickle.load(f)
 
     if 'infos' in infos:
-        all_files = infos['infos']
         IMG_KEY = 'cams'
         FILE_KEY = 'data_path'
-        all_files = update_pathes(all_files)
+        all_files = update_pathes(infos['infos'])
     elif 'data_list' in infos:
-        all_files = infos['data_list']
         IMG_KEY = 'images'
         FILE_KEY = 'img_path'
-        all_files = update_pathes_dev1x(all_files)
+        all_files = update_pathes_dev1x(infos['data_list'])
     else:
         exit("This mmdetection3d version is not supported.")
     
