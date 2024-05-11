@@ -79,7 +79,7 @@ if __name__ == '__main__':
     
     Path(args.dst_folder).mkdir(parents=True, exist_ok=True)
 
-    def _map(i: int) -> None:
+    def sample_map(i: int) -> None:
         info = all_files[i]
         data_paths = [cam_info[FILE_KEY] for cam_info in info[IMG_KEY].values()]
 
@@ -134,4 +134,4 @@ if __name__ == '__main__':
 
     n_files = len(all_files)
     with mp.Pool(processes=args.n_cpus) as pool:
-        l = list(tqdm(pool.imap(_map, range(n_files)), total=n_files))
+        l = list(tqdm(pool.imap(sample_map, range(n_files)), total=n_files))

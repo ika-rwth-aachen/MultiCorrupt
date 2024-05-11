@@ -26,7 +26,7 @@ def parse_arguments():
     parser.add_argument('-r', '--root_folder', help='root folder of dataset',
                         default='/workspace/nuscenes/nuscenes')
     parser.add_argument('-d', '--dst_folder', help='savefolder of dataset', type=str,
-                        default='/workspace/multicorrupt/beamsreducing/1')  
+                        default='/workspace/multicorrupt/beamsreducing/1')
     parser.add_argument('-f', '--severity', help='severity level {1,2,3}', type=int,
                         default=1)
     parser.add_argument('--seed', help='random seed', type=int,
@@ -241,7 +241,7 @@ if __name__ == '__main__':
             new_point = lidar.transform_points(point, args.severity)
         
         elif args.corruption == 'temporalmisalignment':
-            if i>=2:
+            if i >= 2:
                 prev_info = all_paths[i-1]
 
             s = [0.2, 0.4, 0.6][args.severity - 1]
