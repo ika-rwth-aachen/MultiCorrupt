@@ -25,7 +25,7 @@ def update_pathes_dev1x(infos):
         if 'lidar_sweeps' in info:
             for sweep_info in info['lidar_sweeps']:
                 sweep_pathes.append({
-                    "data_path": sweep_info['lidar_points']['lidar_path'][16:]
+                    "data_path": os.path.join(*sweep_info['lidar_points']['lidar_path'].split(os.path.sep)[-3:])
                 })
         info['sweeps'] = sweep_pathes
     return infos
@@ -36,9 +36,9 @@ def update_pathes(infos):
     Remove the first 16 characters from the data_path.
     """
     for info in infos:
-        info['lidar_path'] = info['lidar_path'][16:]
+        info['lidar_path'] = os.path.join(*info['lidar_path'].split(os.path.sep)[-3:])
         for sweep in info['sweeps']:
-            sweep['data_path'] = sweep['data_path'][16:]
+            sweep['data_path'] =  os.path.join(*sweep['data_path'].split(os.path.sep)[-3:])
     return infos
 
 

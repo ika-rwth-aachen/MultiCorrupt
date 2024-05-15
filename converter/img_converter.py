@@ -29,7 +29,7 @@ def update_pathes(infos):
     """
     for info in infos:
         for k, v in info['cams'].items():
-            info['cams'][k]['data_path'] = v['data_path'][16:]
+            info['cams'][k]['data_path'] = os.path.join(*v['data_path'].split(os.path.sep)[-3:])
     return infos
 
 
