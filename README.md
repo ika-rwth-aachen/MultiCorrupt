@@ -142,15 +142,15 @@ Preprint: [https://arxiv.org/abs/2402.11677](https://arxiv.org/abs/2402.11677)
 ## Metrics
 We adhere to the official nuScenes metric definition for computing the NDS and mAP metrics on the MultiCorrupt dataset. To quantitatively compare the performance between the corrupted dataset and the clean nuScenes datasets, we use a metric called the *Resistance Ability* (RA). This metric is calculated across the different severity levels with 
 
-$$RA_{c,s} = \frac{MET_{c,s}}{MET_{clean}}, RA_c = \frac{1}{3} \sum_{s=1}^{3} RA_{c,s}$$
+$$RA_{c,s} = \frac{\mathcal{M}_{c,s}}{\mathcal{M}_{clean}}, RA_c = \frac{1}{3} \sum_{s=1}^{3} RA_{c,s}$$
 
 $$mRA = \frac{1}{N} \sum_{c=1}^{N} RA_c$$
 
-where  $MET_{c,s}$  represents metric for the $c$ types of corruption at the $s$-the severity level, $N$ is the total number of corruption types considered in our benchmark, and $ MET_{clean} $ is performance on the "clean" nuScenes dataset.
+where  $\mathcal{M}_{c,s}$  represents metric for the $c$ types of corruption at the $s$-the severity level, $N$ is the total number of corruption types considered in our benchmark, and $\mathcal{M}_{clean}$ is performance on the "clean" nuScenes dataset.
 
 *Relative Resistance Ability* ( $RRA_{c}$ ) compares the relative robustness of each model for a specific type of corruption with a baseline model. If the value is greater than zero, it indicates that the model demonstrates superior robustness compared to the baseline model. If the value is less than zero, it suggests that the model is less robust than the baseline. We can summarize the relative resistance by computing *Mean Relative Resistance Ability* (mRRA), which measures the relative robustness of the candidate model compared to a baseline model for all types of corruptions
 
-$$RRA_{c} = \frac{\sum\limits_{i=1}^{3} (MET_{c, s})}{\sum\limits_{i=1}^{3} (MET_{baseline, c, s})} - 1,$$
+$$RRA_{c} = \frac{\sum\limits_{i=1}^{3} (\mathcal{M}_{c, s})}{\sum\limits_{i=1}^{3} (\mathcal{M}_{baseline, c, s})} - 1,$$
 
 
 $$mRRA = \frac{1}{N} \sum_{i=1}^{N} RRA_c.$$
