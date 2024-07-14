@@ -10,7 +10,7 @@ from pathlib import Path
 import img
 
 IMG_CORRUPTIONS = ['snow', 'fog', 'temporalmisalignment', 'brightness', 'dark',
-                   'missingcamera', 'motionblur']
+                   'missingcamera', 'motionblur', 'copy']
 
 def update_pathes_dev1x(infos):
     """
@@ -123,6 +123,10 @@ if __name__ == '__main__':
                         new_image = new_image
                     else:
                         new_image = image
+
+                elif args.corruption == "copy":
+                    new_image = copy.deepcopy(image)
+
                 else:
                     raise NotImplementedError('Corruption not implemented')
 
