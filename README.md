@@ -17,7 +17,12 @@
 
 > **Abstract:** Multi-modal 3D object detection models for autonomous driving have demonstrated exceptional performance on computer vision benchmarks like nuScenes. However, their reliance on densely sampled LiDAR point clouds and meticulously calibrated sensor arrays poses challenges for real-world applications. Issues such as sensor misalignment, miscalibration, and disparate sampling frequencies lead to spatial and temporal misalignment in data from LiDAR and cameras. Additionally, the integrity of LiDAR and camera data is often compromised by adverse environmental conditions such as inclement weather, leading to occlusions and noise interference. To address this challenge, we introduce MultiCorrupt, a comprehensive benchmark designed to evaluate the robustness of multi-modal 3D object detectors against ten distinct types of corruptions.
 
-Preprint: [https://arxiv.org/abs/2402.11677](https://arxiv.org/abs/2402.11677)
+### Paper and Poster
+
+- arXiv: [https://arxiv.org/abs/2402.11677](https://arxiv.org/abs/2402.11677)
+- IEEE Explore: [https://ieeexplore.ieee.org/document/10588664](https://ieeexplore.ieee.org/document/10588664)
+- Poster: [WePol3.15-Poster.pdf](assets/WePol3.15-Poster.pdf)
+
 
 <!-- omit in toc -->
 ## Overview
@@ -113,6 +118,7 @@ Preprint: [https://arxiv.org/abs/2402.11677](https://arxiv.org/abs/2402.11677)
 *Note: Right click and click on `Open Image in new tab` to enlarge an animation*
 
 ## News
+- [19.07.2024] **MultiCorrupt** paper is now accssible via [IEEE Explore](https://ieeexplore.ieee.org/document/10588664), [Poster](assets/WePol3.15-Poster.pdf) uploaded
 - [12.07.2024] **v0.0.7** [IS-Fusion](https://github.com/yinjunbo/IS-Fusion) was added to the benchmark
 - [30.03.2024] **MultiCorrupt** has been accepted to [IEEE Intelligent Vehicles Symposium (IV)](https://ieee-iv.org/2024/)
 - [28.03.2024] **v0.0.3** Changed severity configuration for *Brightness*, reevaluated all models and metrics
