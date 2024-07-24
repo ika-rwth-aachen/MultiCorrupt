@@ -373,12 +373,14 @@ for their open source contribution which made this project possible.
 
 ## Citation
 ```
-@misc{beemelmanns2024multicorrupt,
-      title={MultiCorrupt: A Multi-Modal Robustness Dataset and Benchmark of LiDAR-Camera Fusion for 3D Object Detection}, 
-      author={Till Beemelmanns and Quan Zhang and Lutz Eckstein},
-      year={2024},
-      eprint={2402.11677},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
-}
+@INPROCEEDINGS{10588664,
+  author={Beemelmanns, Till and Zhang, Quan and Geller, Christian and Eckstein, Lutz},
+  booktitle={2024 IEEE Intelligent Vehicles Symposium (IV)}, 
+  title={MultiCorrupt: A Multi-Modal Robustness Dataset and Benchmark of LiDAR-Camera Fusion for 3D Object Detection}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={3255-3261},
+  keywords={Training;Solid modeling;Three-dimensional displays;Laser radar;Object detection;Detectors;Benchmark testing},
+  doi={10.1109/IV55156.2024.10588664}}
 ```
