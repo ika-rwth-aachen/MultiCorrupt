@@ -274,6 +274,13 @@ options:
   --seed SEED           random seed
 ```
 
+> **Warning**
+> For all experiments and results in the paper `-sweep` was activated, which means the LiDAR corruptions were applied to all LiDAR sweeps in the  dataset !
+
+> **Warning**
+> Depending on the number of available CPUs on your system, lot of time is needed to generate some of the corruptions. Users [report 12h of generation time](https://github.com/ika-rwth-aachen/MultiCorrupt/issues/12)  on the LiDAR snow corruptions using 32 CPUs. Make sure to use all available CPUs on your compute cluster environment.
+
+
 ### Example
 
 ```bash
