@@ -347,11 +347,11 @@ logfile="/workspace/evaluation_log.txt"
 
 ## Contribution
 Do you wish to add your model to the benchmark or do you want you model getting evaluated on MultiCorrupt? 
-No problem! Simply create an Issue and we will try to add your model to the benchmark asap. Please provide a link 
+No problem! Simply create an issue and we will try to add your model to the benchmark asap. Please provide a link 
 to the repository and the model weights and make sure to follow the issue templates here:
 
-- [ADD_MODEL.md](.github/ISSUE_TEMPLATE/ADD_MODEL.md)
-- [REQUESTION_MODEL_EVALUATION.md](.github/ISSUE_TEMPLATE/REQUEST_MODEL_EVALUATION.md)
+- [add-model-to-benchmark.md](.github/ISSUE_TEMPLATE/add-model-to-benchmark.md)
+- [bug_report.md](.github/ISSUE_TEMPLATE/bug_report.md)
 
 ## Acknowledgments
 We thank the authors of
