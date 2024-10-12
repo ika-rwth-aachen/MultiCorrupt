@@ -27,7 +27,7 @@
 <!-- omit in toc -->
 ## Overview
 - [Corruption Types](#corruption-types)
-- [](#)
+- [News](#news)
 - [Benchmark Results](#benchmark-results)
 - [Metrics](#metrics)
 - [Installation](#installation)
@@ -117,7 +117,7 @@
 
 *Note: Right click and click on `Open Image in new tab` to enlarge an animation*
 
-## 
+## News
 - [12.10.2024] **v0.0.8** Added the three model variants of [UniBEV](https://github.com/tudelft-iv/UniBEV) to benchmark
 - [19.07.2024] **MultiCorrupt** paper is now accssible via [IEEE Explore](https://ieeexplore.ieee.org/document/10588664), [Poster](assets/WePol3.15-Poster.pdf) uploaded
 - [12.07.2024] **v0.0.7** [IS-Fusion](https://github.com/yinjunbo/IS-Fusion) was added to the benchmark
