@@ -3,3 +3,4 @@ npy/
 nuscenes/
 multicorrupt/
 tmp
+.venv/

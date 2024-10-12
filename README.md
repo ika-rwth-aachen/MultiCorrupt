@@ -126,26 +126,32 @@
 - [01.02.2024] **v0.0.1** Initial Release with **10 corruption types** and **5 evaluated models**
 
 ## Benchmark Results
-### Resistance Ability (RA) computed with NDS metric
+### 📊 Relative Resistance Ability (RRA) computed with NDS metric and baseline BEVfusion
+| Model                                                           | Clean     | Beams Red.   | Brightness   | Darkness   | Fog       | Missing Cam.   | Motion Blur   | Points Red.   | Snow      | Spatial Mis.   | Temporal Mis.   | mRRA      |
+|:----------------------------------------------------------------|:----------|:-------------|:-------------|:-----------|:----------|:---------------|:--------------|:--------------|:----------|:---------------|:----------------|:----------|
+| ⭐ [CMT](https://github.com/junjie18/CMT)                          | 0.729     | **18.642**   | -1.138       | -0.096     | **9.398** | **2.041**      | -0.841        | **8.213**     | **9.887** | **17.053**     | **8.448**       | **7.161** |
+| [Sparsefusion](https://github.com/yichen928/SparseFusion)       | 0.732     | 4.264        | **3.179**    | **1.821**  | 4.429     | 0.297          | 0.280         | 3.242         | 1.887     | 3.699          | 7.228           | 3.033     |
+| [IS-Fusion](https://github.com/yinjunbo/IS-Fusion)              | **0.737** | 3.684        | 2.291        | 1.267      | 3.890     | 0.920          | **3.994**     | 1.691         | -2.351    | 4.513          | 7.177           | 2.708     |
+| ⚓︎ [BEVfusion](https://github.com/mit-han-lab/bevfusion)           | 0.714     | 0.000        | 0.000        | 0.000      | 0.000     | 0.000          | 0.000         | 0.000         | 0.000     | 0.000          | 0.000           | 0.000     |
+| [TransFusion](https://github.com/XuyangBai/TransFusion)         | 0.708     | -7.210       | 1.799        | 1.146      | -0.552    | 0.340          | -5.412        | -3.296        | -4.220    | -3.626         | 3.850           | -1.718    |
+| [UniBEV_avg](https://github.com/tudelft-iv/UniBEV)              | 0.684     | 7.617        | -3.758       | -4.595     | -1.228    | -5.170         | -11.777       | -0.144        | -6.909    | 2.812          | 1.617           | -2.154    |
+| [UniBEV_cat](https://github.com/tudelft-iv/UniBEV)              | 0.678     | 6.534        | -4.303       | -5.279     | -0.199    | -5.438         | -12.505       | -0.979        | -6.596    | 1.436          | 0.799           | -2.653    |
+| [UniBEV_cnw](https://github.com/tudelft-iv/UniBEV)              | 0.685     | 5.030        | -3.729       | -4.383     | -1.104    | -5.749         | -13.119       | -0.428        | -8.055    | 1.582          | 1.025           | -2.893    |
+| [DeepInteraction](https://github.com/fudan-zvg/DeepInteraction) | 0.691     | -6.361       | -3.150       | -7.215     | -25.037   | -16.386        | -7.077        | -2.188        | -5.149    | 0.212          | 0.145           | -7.221    |
 
+### 📊 Resistance Ability (RA) computed with NDS metric
 | Model                                                           | Clean     | Beams Red.   | Brightness   | Darkness   | Fog       | Missing Cam.   | Motion Blur   | Points Red.   | Snow      | Spatial Mis.   | Temporal Mis.   | mRA       |
 |:----------------------------------------------------------------|:----------|:-------------|:-------------|:-----------|:----------|:---------------|:--------------|:--------------|:----------|:---------------|:----------------|:----------|
 | ⭐ [CMT](https://github.com/junjie18/CMT)                          | 0.729     | **0.786**    | 0.937        | 0.948      | **0.806** | 0.974          | 0.841         | **0.925**     | **0.833** | **0.809**      | **0.788**       | **0.865** |
+| [UniBEV_cat](https://github.com/tudelft-iv/UniBEV)              | 0.678     | 0.759        | 0.975        | 0.967      | 0.791     | 0.970          | 0.798         | 0.910         | 0.761     | 0.753          | 0.788           | 0.847     |
+| [UniBEV_avg](https://github.com/tudelft-iv/UniBEV)              | 0.684     | 0.760        | 0.972        | 0.965      | 0.776     | 0.964          | 0.797         | 0.909         | 0.752     | 0.757          | 0.787           | 0.844     |
+| [UniBEV_cnw](https://github.com/tudelft-iv/UniBEV)              | 0.685     | 0.740        | 0.971        | 0.966      | 0.775     | 0.957          | 0.784         | 0.905         | 0.742     | 0.747          | 0.781           | 0.837     |
 | [Sparsefusion](https://github.com/yichen928/SparseFusion)       | 0.732     | 0.689        | 0.975        | 0.963      | 0.767     | 0.954          | 0.848         | 0.879         | 0.770     | 0.714          | 0.777           | 0.834     |
 | [BEVfusion](https://github.com/mit-han-lab/bevfusion)           | 0.714     | 0.676        | 0.967        | 0.969      | 0.752     | 0.974          | 0.866         | 0.872         | 0.774     | 0.705          | 0.742           | 0.830     |
 | [IS-Fusion](https://github.com/yinjunbo/IS-Fusion)              | **0.737** | 0.680        | 0.960        | 0.952      | 0.758     | 0.953          | **0.873**     | 0.860         | 0.733     | 0.715          | 0.771           | 0.826     |
 | [TransFusion](https://github.com/XuyangBai/TransFusion)         | 0.708     | 0.633        | **0.993**    | **0.988**  | 0.754     | **0.985**      | 0.826         | 0.851         | 0.748     | 0.685          | 0.777           | 0.824     |
 | [DeepInteraction](https://github.com/fudan-zvg/DeepInteraction) | 0.691     | 0.655        | 0.969        | 0.929      | 0.583     | 0.842          | 0.832         | 0.882         | 0.759     | 0.731          | 0.768           | 0.795     |
 
-### Relative Resistance Ability (RRA) computed with NDS metric and baseline BEVfusion
-| Model                                                           | Clean     | Beams Red.   | Brightness   | Darkness   | Fog       | Missing Cam.   | Motion Blur   | Points Red.   | Snow      | Spatial Mis.   | Temporal Mis.   | mRRA      |
-|:----------------------------------------------------------------|:----------|:-------------|:-------------|:-----------|:----------|:---------------|:--------------|:--------------|:----------|:---------------|:----------------|:----------|
-| ⭐ [CMT](https://github.com/junjie18/CMT)                          | 0.729     | **18.642**   | -1.138       | -0.096     | **9.398** | **2.041**      | -0.841        | **8.213**     | **9.887** | **17.053**     | **8.448**       | **7.161** |
-| [Sparsefusion](https://github.com/yichen928/SparseFusion)       | 0.732     | 4.264        | **3.179**    | **1.821**  | 4.429     | 0.297          | 0.280         | 3.242         | 1.887     | 3.699          | 7.228           | 3.033     |
-| [IS-Fusion](https://github.com/yinjunbo/IS-Fusion)              | **0.737** | 3.684        | 2.291        | 1.267      | 3.890     | 0.920          | **3.994**     | 1.691         | -2.351    | 4.513          | 7.177           | 2.708     |
-| ⚓ [BEVfusion](https://github.com/mit-han-lab/bevfusion)           | 0.714     | 0.000        | 0.000        | 0.000      | 0.000     | 0.000          | 0.000         | 0.000         | 0.000     | 0.000          | 0.000           | 0.000     |
-| [TransFusion](https://github.com/XuyangBai/TransFusion)         | 0.708     | -7.210       | 1.799        | 1.146      | -0.552    | 0.340          | -5.412        | -3.296        | -4.220    | -3.626         | 3.850           | -1.718    |
-| [DeepInteraction](https://github.com/fudan-zvg/DeepInteraction) | 0.691     | -6.361       | -3.150       | -7.215     | -25.037   | -16.386        | -7.077        | -2.188        | -5.149    | 0.212          | 0.145           | -7.221    |
 
 ## Metrics
 We adhere to the official nuScenes metric definition for computing the NDS and mAP metrics on the MultiCorrupt dataset. To quantitatively compare the performance between the corrupted dataset and the clean nuScenes datasets, we use a metric called the *Resistance Ability* (RA). This metric is calculated across the different severity levels with 
@@ -349,7 +355,7 @@ logfile="/workspace/evaluation_log.txt"
 
 
 ## TODOs
-- [ ] Add visualization for results
+- [ ] 📝 Add visualization for results
 
 
 ## Contribution
