@@ -22,7 +22,7 @@
 - arXiv: [https://arxiv.org/abs/2402.11677](https://arxiv.org/abs/2402.11677)
 - IEEE Explore: [https://ieeexplore.ieee.org/document/10588664](https://ieeexplore.ieee.org/document/10588664)
 - Poster: [WePol3.15-Poster.pdf](assets/WePol3.15-Poster.pdf)
-
+- Trailer: [https://youtu.be/55AMUwy13uE?si=Vr72CCC0aREXZ-vs](https://youtu.be/55AMUwy13uE?si=Vr72CCC0aREXZ-vs)
 
 <!-- omit in toc -->
 ## Overview
