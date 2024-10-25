@@ -120,7 +120,7 @@
 ## News
 - [25.10.2024] **v0.0.9** Added the two model variants of [MEFormer](https://github.com/hanchaa/MEFormer) to benchmark
 - [12.10.2024] **v0.0.8** Added the three model variants of [UniBEV](https://github.com/tudelft-iv/UniBEV) to benchmark
-- [19.07.2024] **MultiCorrupt** paper is now accssible via [IEEE Explore](https://ieeexplore.ieee.org/document/10588664), [Poster](assets/WePol3.15-Poster.pdf) uploaded
+- [19.07.2024] **MultiCorrupt** paper is now accessible via [IEEE Explore](https://ieeexplore.ieee.org/document/10588664), [Poster](assets/WePol3.15-Poster.pdf) uploaded
 - [12.07.2024] **v0.0.7** [IS-Fusion](https://github.com/yinjunbo/IS-Fusion) was added to the benchmark
 - [30.03.2024] **MultiCorrupt** has been accepted to [IEEE Intelligent Vehicles Symposium (IV)](https://ieee-iv.org/2024/)
 - [28.03.2024] **v0.0.3** Changed severity configuration for *Brightness*, reevaluated all models and metrics
