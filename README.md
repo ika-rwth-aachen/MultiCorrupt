@@ -129,14 +129,14 @@
 
 ## Benchmark Results
 ### 📊 Relative Resistance Ability (RRA) computed with NDS metric and baseline BEVfusion
-| Model                                                           | Clean     | 🔼 mRRA    | Beams Red.   | Brightness   | Darkness   | Fog       | Missing Cam.   | Motion Blur   | Points Red.   | Snow       | Spatial Mis.   | Temporal Mis.   |
+| Model                                                           | Clean     | ⬆️ mRRA    | Beams Red.   | Brightness   | Darkness   | Fog       | Missing Cam.   | Motion Blur   | Points Red.   | Snow       | Spatial Mis.   | Temporal Mis.   |
 |:----------------------------------------------------------------|:----------|:----------|:-------------|:-------------|:-----------|:----------|:---------------|:--------------|:--------------|:-----------|:---------------|:----------------|
 | ⭐ [MEFormer](https://github.com/hanchaa/MEFormer)                 | **0.739** | **7.391** | 16.759       | 0.878        | 1.556      | 8.586     | -0.168         | -0.307        | **8.865**     | **11.382** | 16.689         | **9.668**       |
 | [CMT](https://github.com/junjie18/CMT)                          | 0.729     | 7.161     | **18.642**   | -1.138       | -0.096     | **9.398** | **2.041**      | -0.841        | 8.213         | 9.887      | **17.053**     | 8.448           |
 | [MEFormer w/o PME](https://github.com/hanchaa/MEFormer)         | 0.737     | 6.740     | 15.172       | 0.714        | 1.522      | 8.176     | -0.791         | -0.679        | 8.384         | 10.749     | 14.968         | 9.184           |
 | [Sparsefusion](https://github.com/yichen928/SparseFusion)       | 0.732     | 3.033     | 4.264        | **3.179**    | **1.821**  | 4.429     | 0.297          | 0.280         | 3.242         | 1.887      | 3.699          | 7.228           |
 | [IS-Fusion](https://github.com/yinjunbo/IS-Fusion)              | 0.737     | 2.708     | 3.684        | 2.291        | 1.267      | 3.890     | 0.920          | **3.994**     | 1.691         | -2.351     | 4.513          | 7.177           |
-| [BEVfusion](https://github.com/mit-han-lab/bevfusion)           | 0.714     | 0.000     | 0.000        | 0.000        | 0.000      | 0.000     | 0.000          | 0.000         | 0.000         | 0.000      | 0.000          | 0.000           |
+| ⚓️ [BEVfusion](https://github.com/mit-han-lab/bevfusion)           | 0.714     | 0.000     | 0.000        | 0.000        | 0.000      | 0.000     | 0.000          | 0.000         | 0.000         | 0.000      | 0.000          | 0.000           |
 | [TransFusion](https://github.com/XuyangBai/TransFusion)         | 0.708     | -1.718    | -7.210       | 1.799        | 1.146      | -0.552    | 0.340          | -5.412        | -3.296        | -4.220     | -3.626         | 3.850           |
 | [UniBEV_avg](https://github.com/tudelft-iv/UniBEV)              | 0.684     | -2.154    | 7.617        | -3.758       | -4.595     | -1.228    | -5.170         | -11.777       | -0.144        | -6.909     | 2.812          | 1.617           |
 | [UniBEV_cat](https://github.com/tudelft-iv/UniBEV)              | 0.678     | -2.653    | 6.534        | -4.303       | -5.279     | -0.199    | -5.438         | -12.505       | -0.979        | -6.596     | 1.436          | 0.799           |
@@ -145,7 +145,7 @@
 
 
 ### 📊 Resistance Ability (RA) computed with NDS metric
-| Model                                                           | Clean     | 🔼 mRA     | Beams Red.   | Brightness   | Darkness   | Fog       | Missing Cam.   | Motion Blur   | Points Red.   | Snow      | Spatial Mis.   | Temporal Mis.   |
+| Model                                                           | Clean     | ⬆️ mRA     | Beams Red.   | Brightness   | Darkness   | Fog       | Missing Cam.   | Motion Blur   | Points Red.   | Snow      | Spatial Mis.   | Temporal Mis.   |
 |:----------------------------------------------------------------|:----------|:----------|:-------------|:-------------|:-----------|:----------|:---------------|:--------------|:--------------|:----------|:---------------|:----------------|
 | ⭐ [CMT](https://github.com/junjie18/CMT)                          | 0.729     | **0.865** | **0.786**    | 0.937        | 0.948      | **0.806** | 0.974          | 0.841         | **0.925**     | 0.833     | **0.809**      | **0.788**       |
 | [MEFormer](https://github.com/hanchaa/MEFormer)                 | **0.739** | 0.856     | 0.764        | 0.944        | 0.952      | 0.790     | 0.941          | 0.835         | 0.918         | **0.834** | 0.796          | 0.787           |
