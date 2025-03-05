@@ -31,9 +31,9 @@
 - [News](#news)
 - [Benchmark Results](#benchmark-results)
 - [Metrics](#metrics)
-- [Download Dataset](#download-dataset)
-- [Manual Dataset Compilation](#manual-dataset-compilation)
-- [Usage](#usage)
+- [Dataset Download](#dataset-download)
+- [Dataset Compilation](#dataset-compilation)
+- [Dataset Usage](#dataset-usage)
 - [TODOs](#todos)
 - [Contribution](#contribution)
 - [Acknowledgments](#acknowledgments)
@@ -182,7 +182,7 @@ $$mRRA = \frac{1}{N} \sum_{i=1}^{N} RRA_c.$$
 where $c$ denotes the type of corruption, $s$ represents the level of severity, and $N$ is the total number of corruption types considered in our benchmark. The term $RRA_{c}$ specifically illustrates the relative robustness of each model under a particular type of corruption $c$. The $mRRA$ reflects the global perspective by showing the average robustness of each model across all considered types of corruption with the baseline model.
 
 
-## Download Dataset
+## Dataset Download
 Follow the Huggingface [Dataset Download](https://huggingface.co/docs/hub/datasets-downloading) instructions and download the dataset from the following link:
 [https://huggingface.co/datasets/TillBeemelmanns/MultiCorrupt](https://huggingface.co/datasets/TillBeemelmanns/MultiCorrupt)
 
@@ -213,7 +213,7 @@ done
 echo "Dataset extraction completed successfully."
 ```
 
-## Manual Dataset Compilation
+## Dataset Compilation
 
 ### Clone this repository:
 
@@ -241,7 +241,7 @@ rm snowflakes.zip
 ```
 
 
-## Usage
+## Dataset Usage
 
 ### Docker Container Setup
 We recommend to use [run.sh](docker/run.sh) to start the
