@@ -17,12 +17,13 @@
 
 > **Abstract:** Multi-modal 3D object detection models for autonomous driving have demonstrated exceptional performance on computer vision benchmarks like nuScenes. However, their reliance on densely sampled LiDAR point clouds and meticulously calibrated sensor arrays poses challenges for real-world applications. Issues such as sensor misalignment, miscalibration, and disparate sampling frequencies lead to spatial and temporal misalignment in data from LiDAR and cameras. Additionally, the integrity of LiDAR and camera data is often compromised by adverse environmental conditions such as inclement weather, leading to occlusions and noise interference. To address this challenge, we introduce MultiCorrupt, a comprehensive benchmark designed to evaluate the robustness of multi-modal 3D object detectors against ten distinct types of corruptions.
 
-### Paper and Poster
+### Paper, Poster and Download
 
 - arXiv: [https://arxiv.org/abs/2402.11677](https://arxiv.org/abs/2402.11677)
 - IEEE Explore: [https://ieeexplore.ieee.org/document/10588664](https://ieeexplore.ieee.org/document/10588664)
 - Poster: [WePol3.15-Poster.pdf](assets/WePol3.15-Poster.pdf)
 - Trailer: [https://youtu.be/55AMUwy13uE?si=Vr72CCC0aREXZ-vs](https://youtu.be/55AMUwy13uE?si=Vr72CCC0aREXZ-vs)
+- Dataset Download: [https://huggingface.co/datasets/TillBeemelmanns/MultiCorrupt](https://huggingface.co/datasets/TillBeemelmanns/MultiCorrupt)
 
 <!-- omit in toc -->
 ## Overview
@@ -30,7 +31,8 @@
 - [News](#news)
 - [Benchmark Results](#benchmark-results)
 - [Metrics](#metrics)
-- [Installation](#installation)
+- [Download Dataset](#download-dataset)
+- [Manual Dataset Compilation](#manual-dataset-compilation)
 - [Usage](#usage)
 - [TODOs](#todos)
 - [Contribution](#contribution)
@@ -118,6 +120,7 @@
 *Note: Right click and click on `Open Image in new tab` to enlarge an animation*
 
 ## News
+- [21.02.2025] [**Download Link**](https://huggingface.co/datasets/TillBeemelmanns/MultiCorrupt) is available
 - [25.10.2024] **v0.0.9** Added the two model variants of [MEFormer](https://github.com/hanchaa/MEFormer) to benchmark
 - [12.10.2024] **v0.0.8** Added the three model variants of [UniBEV](https://github.com/tudelft-iv/UniBEV) to benchmark
 - [19.07.2024] **MultiCorrupt** paper is now accessible via [IEEE Explore](https://ieeexplore.ieee.org/document/10588664), [Poster](assets/WePol3.15-Poster.pdf) uploaded
@@ -126,6 +129,7 @@
 - [28.03.2024] **v0.0.3** Changed severity configuration for *Brightness*, reevaluated all models and metrics
 - [17.02.2024] **v0.0.2** Changed severity configuration for *Pointsreducing*, reevaluated all models and metrics
 - [01.02.2024] **v0.0.1** Initial Release with **10 corruption types** and **5 evaluated models**
+
 
 ## Benchmark Results
 ### 📊 Relative Resistance Ability (RRA) computed with NDS metric and baseline BEVfusion
@@ -178,7 +182,38 @@ $$mRRA = \frac{1}{N} \sum_{i=1}^{N} RRA_c.$$
 where $c$ denotes the type of corruption, $s$ represents the level of severity, and $N$ is the total number of corruption types considered in our benchmark. The term $RRA_{c}$ specifically illustrates the relative robustness of each model under a particular type of corruption $c$. The $mRRA$ reflects the global perspective by showing the average robustness of each model across all considered types of corruption with the baseline model.
 
 
-## Installation
+## Download Dataset
+Follow the Huggingface [Dataset Download](https://huggingface.co/docs/hub/datasets-downloading) instructions and download the dataset from the following link:
+[https://huggingface.co/datasets/TillBeemelmanns/MultiCorrupt](https://huggingface.co/datasets/TillBeemelmanns/MultiCorrupt)
+
+Unzip the compressed dataset with the following script:
+
+```bash
+#!/bin/bash
+
+# Set directories
+compressed_dir="multicorrupt"
+destination_dir="multicorrupt_uncompressed"
+mkdir -p "$destination_dir"
+
+# Iterate over all split archives
+for archive in "$compressed_dir"/*.tar.gz.part00; do
+    base_name=$(basename "$archive" .tar.gz.part00)
+    category=$(echo "$base_name" | cut -d'_' -f1)
+    subfolder=$(echo "$base_name" | cut -d'_' -f2)
+    
+    # Create category directory if it doesn't exist
+    mkdir -p "$destination_dir/$category/$subfolder"
+    
+    echo "Reconstructing and extracting $base_name..."
+    cat "$compressed_dir/${base_name}.tar.gz.part"* | tar -xzvf - -C "$destination_dir/$category/$subfolder"
+
+done
+
+echo "Dataset extraction completed successfully."
+```
+
+## Manual Dataset Compilation
 
 ### Clone this repository:
 
@@ -383,6 +418,18 @@ We thank the authors of
 - [Robo3D](https://github.com/ldkong1205/Robo3D)
 
 for their open source contribution which made this project possible.
+
+
+Please note that you should cite the original nuScenes dataset once you use MultiCorrupt.
+```
+@inproceedings{caesar2020nuscenes,
+    author = {H. Caesar and V. Bankiti and A. H. Lang and S. Vora and V. E. Liong and Q. Xu and A. Krishnan and Y. Pan and G. Baldan and O. Beijbom},
+    title = {nuScenes: A Multimodal Dataset for Autonomous Driving},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+    pages = {11621--11631},
+    year = {2020}
+}
+```
 
 ---
 
