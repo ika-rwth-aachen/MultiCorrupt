@@ -10,6 +10,7 @@
       <a href="https://www.ika.rwth-aachen.de/de/institut/team/univ-prof-dr-ing-lutz-eckstein.html" target='_blank'>Lutz Eckstein</a><sup>1</sup>&nbsp;&nbsp;
     <br>
     <small><sup>1</sup>Institute for Automotive Engineering, RWTH Aachen University, Germany&nbsp;&nbsp;</small>
+    <br>
     <small><sup>2</sup>Department of Electrical Engineering and Computer Science, TU Berlin, Germany&nbsp;&nbsp;</small>
   </p>
 </p>
