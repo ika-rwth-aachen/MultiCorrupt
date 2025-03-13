@@ -116,7 +116,7 @@
 *Note: Right click and click on `Open Image in new tab` to enlarge an animation*
 
 ## News
-- [13.03.2025] Our related work ***OCCUQ** has been accepted to ICRA and is available on [Github](https://github.com/ika-rwth-aachen/OCCUQ)
+- [13.03.2025] Our related work **OCCUQ** has been accepted to ICRA and is available on [Github](https://github.com/ika-rwth-aachen/OCCUQ)
 - [21.02.2025] [**Download Link**](https://huggingface.co/datasets/TillBeemelmanns/MultiCorrupt) is available
 - [25.10.2024] **v0.0.9** Added the two model variants of [MEFormer](https://github.com/hanchaa/MEFormer) to benchmark
 - [12.10.2024] **v0.0.8** Added the three model variants of [UniBEV](https://github.com/tudelft-iv/UniBEV) to benchmark
