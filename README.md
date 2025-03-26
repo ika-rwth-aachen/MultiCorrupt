@@ -194,7 +194,8 @@ huggingface-cli download TillBeemelmanns/MultiCorrupt --repo-type dataset
 ```
 
 Please note the default download location is `~/.cache/huggingface/datasets/downloads/`. Change the cache location by setting the shell environment variable, `HF_HOME` to another directory:
-```
+
+```bash
 $ export HF_HOME="/path/to/another/directory/datasets"
 ```
 
