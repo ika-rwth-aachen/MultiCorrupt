@@ -183,17 +183,17 @@ where $c$ denotes the type of corruption, $s$ represents the level of severity, 
 Follow the Huggingface [Dataset Download](https://huggingface.co/docs/hub/datasets-downloading) instructions and download the dataset from the following link:
 [https://huggingface.co/datasets/TillBeemelmanns/MultiCorrupt](https://huggingface.co/datasets/TillBeemelmanns/MultiCorrupt)
 
-For example, you can run the following commands to install the huggingface cli
+For example, you can run the following command to install the huggingface cli
 ```bash
 pip install -U "huggingface_hub[cli]"
 ```
 
-Then download the whole dataset with
+then download the whole dataset with
 ```bash
 huggingface-cli download TillBeemelmanns/MultiCorrupt --repo-type dataset --local-dir /path/to/dataset
 ```
 
-Please note the default cache location is `~/.cache/huggingface/datasets/downloads/`. This might cause problems if your local host does not have much storage in the `/home` directory. Change the cache location by setting the shell environment variable, `HF_HOME` to another directory:
+Please note the default cache location is `~/.cache/huggingface/datasets/downloads/`. This might cause problems if your local host does not have much free space in the `/home` directory. Change the cache location by setting the shell environment variable `HF_HOME` to another directory:
 
 ```bash
 $ export HF_HOME="/path/to/another/directory/datasets"
