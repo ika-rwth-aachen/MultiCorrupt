@@ -199,32 +199,8 @@ Please note the default cache location is `~/.cache/huggingface/datasets/downloa
 $ export HF_HOME="/path/to/another/directory/datasets"
 ```
 
-Unzip the compressed dataset with the following script:
+Unzip the compressed dataset with the [unzip_compressed_dataset.sh](helper/unzip_compressed_dataset.sh) script.
 
-```bash
-#!/bin/bash
-
-# Set directories
-compressed_dir="multicorrupt"
-destination_dir="multicorrupt_uncompressed"
-mkdir -p "$destination_dir"
-
-# Iterate over all split archives
-for archive in "$compressed_dir"/*.tar.gz.part00; do
-    base_name=$(basename "$archive" .tar.gz.part00)
-    category=$(echo "$base_name" | cut -d'_' -f1)
-    subfolder=$(echo "$base_name" | cut -d'_' -f2)
-    
-    # Create category directory if it doesn't exist
-    mkdir -p "$destination_dir/$category/$subfolder"
-    
-    echo "Reconstructing and extracting $base_name..."
-    cat "$compressed_dir/${base_name}.tar.gz.part"* | tar -xzvf - -C "$destination_dir/$category/$subfolder"
-
-done
-
-echo "Dataset extraction completed successfully."
-```
 
 ## Dataset Compilation
 You can also manually compile the whole dataset locally using the clean nuScenes dataset.
