@@ -190,10 +190,10 @@ pip install -U "huggingface_hub[cli]"
 
 Then download the whole dataset with
 ```bash
-huggingface-cli download TillBeemelmanns/MultiCorrupt --repo-type dataset
+huggingface-cli download TillBeemelmanns/MultiCorrupt --repo-type dataset --local-dir /path/to/dataset
 ```
 
-Please note the default download location is `~/.cache/huggingface/datasets/downloads/`. Change the cache location by setting the shell environment variable, `HF_HOME` to another directory:
+Please note the default cache location is `~/.cache/huggingface/datasets/downloads/`. This might cause problems if your local host does not have much storage in the `/home` directory. Change the cache location by setting the shell environment variable, `HF_HOME` to another directory:
 
 ```bash
 $ export HF_HOME="/path/to/another/directory/datasets"
