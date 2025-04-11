@@ -116,6 +116,7 @@
 *Note: Right click and click on `Open Image in new tab` to enlarge an animation*
 
 ## News
+- [11.04.2025] **v0.0.10** Added model [MoME](https://github.com/konyul/MoME) to benchmark
 - [13.03.2025] Our related work **OCCUQ** has been accepted to ICRA and is available on [Github](https://github.com/ika-rwth-aachen/OCCUQ)
 - [21.02.2025] [**Download Link**](https://huggingface.co/datasets/TillBeemelmanns/MultiCorrupt) is available
 - [25.10.2024] **v0.0.9** Added the two model variants of [MEFormer](https://github.com/hanchaa/MEFormer) to benchmark
@@ -132,24 +133,25 @@
 ### 📊 Relative Resistance Ability (RRA) computed with NDS metric and baseline BEVfusion
 | Model                                                           | Clean     | ⬆️ mRRA    | Beams Red.   | Brightness   | Darkness   | Fog       | Missing Cam.   | Motion Blur   | Points Red.   | Snow       | Spatial Mis.   | Temporal Mis.   |
 |:----------------------------------------------------------------|:----------|:----------|:-------------|:-------------|:-----------|:----------|:---------------|:--------------|:--------------|:-----------|:---------------|:----------------|
-| ⭐ [MEFormer](https://github.com/hanchaa/MEFormer)                 | **0.739** | **7.391** | 16.759       | 0.878        | 1.556      | 8.586     | -0.168         | -0.307        | **8.865**     | **11.382** | 16.689         | **9.668**       |
+| ⭐ [MEFormer](https://github.com/hanchaa/MEFormer)              | **0.739** | **7.391** | 16.759       | 0.878        | 1.556      | 8.586     | -0.168         | -0.307        | **8.865**     | **11.382** | 16.689         | **9.668**       |
 | [CMT](https://github.com/junjie18/CMT)                          | 0.729     | 7.161     | **18.642**   | -1.138       | -0.096     | **9.398** | **2.041**      | -0.841        | 8.213         | 9.887      | **17.053**     | 8.448           |
+| [MoME](https://github.com/konyul/MoME)                          | 0.735     | 6.837     | 15.061       | 0.400        | 0.694      | 7.891     | 1.634          | -0.685        | 8.421         | 10.852     | 14.975         | 9.128           |
 | [MEFormer w/o PME](https://github.com/hanchaa/MEFormer)         | 0.737     | 6.740     | 15.172       | 0.714        | 1.522      | 8.176     | -0.791         | -0.679        | 8.384         | 10.749     | 14.968         | 9.184           |
 | [Sparsefusion](https://github.com/yichen928/SparseFusion)       | 0.732     | 3.033     | 4.264        | **3.179**    | **1.821**  | 4.429     | 0.297          | 0.280         | 3.242         | 1.887      | 3.699          | 7.228           |
 | [IS-Fusion](https://github.com/yinjunbo/IS-Fusion)              | 0.737     | 2.708     | 3.684        | 2.291        | 1.267      | 3.890     | 0.920          | **3.994**     | 1.691         | -2.351     | 4.513          | 7.177           |
-| ⚓️ [BEVfusion](https://github.com/mit-han-lab/bevfusion)           | 0.714     | 0.000     | 0.000        | 0.000        | 0.000      | 0.000     | 0.000          | 0.000         | 0.000         | 0.000      | 0.000          | 0.000           |
+| [BEVfusion](https://github.com/mit-han-lab/bevfusion)           | 0.714     | 0.000     | 0.000        | 0.000        | 0.000      | 0.000     | 0.000          | 0.000         | 0.000         | 0.000      | 0.000          | 0.000           |
 | [TransFusion](https://github.com/XuyangBai/TransFusion)         | 0.708     | -1.718    | -7.210       | 1.799        | 1.146      | -0.552    | 0.340          | -5.412        | -3.296        | -4.220     | -3.626         | 3.850           |
 | [UniBEV_avg](https://github.com/tudelft-iv/UniBEV)              | 0.684     | -2.154    | 7.617        | -3.758       | -4.595     | -1.228    | -5.170         | -11.777       | -0.144        | -6.909     | 2.812          | 1.617           |
 | [UniBEV_cat](https://github.com/tudelft-iv/UniBEV)              | 0.678     | -2.653    | 6.534        | -4.303       | -5.279     | -0.199    | -5.438         | -12.505       | -0.979        | -6.596     | 1.436          | 0.799           |
 | [UniBEV_cnw](https://github.com/tudelft-iv/UniBEV)              | 0.685     | -2.893    | 5.030        | -3.729       | -4.383     | -1.104    | -5.749         | -13.119       | -0.428        | -8.055     | 1.582          | 1.025           |
 | [DeepInteraction](https://github.com/fudan-zvg/DeepInteraction) | 0.691     | -7.221    | -6.361       | -3.150       | -7.215     | -25.037   | -16.386        | -7.077        | -2.188        | -5.149     | 0.212          | 0.145           |
 
-
 ### 📊 Resistance Ability (RA) computed with NDS metric
 | Model                                                           | Clean     | ⬆️ mRA     | Beams Red.   | Brightness   | Darkness   | Fog       | Missing Cam.   | Motion Blur   | Points Red.   | Snow      | Spatial Mis.   | Temporal Mis.   |
 |:----------------------------------------------------------------|:----------|:----------|:-------------|:-------------|:-----------|:----------|:---------------|:--------------|:--------------|:----------|:---------------|:----------------|
-| ⭐ [CMT](https://github.com/junjie18/CMT)                          | 0.729     | **0.865** | **0.786**    | 0.937        | 0.948      | **0.806** | 0.974          | 0.841         | **0.925**     | 0.833     | **0.809**      | **0.788**       |
+| ⭐ [CMT](https://github.com/junjie18/CMT)                       | 0.729     | **0.865** | **0.786**    | 0.937        | 0.948      | **0.806** | 0.974          | 0.841         | **0.925**     | 0.833     | **0.809**      | **0.788**       |
 | [MEFormer](https://github.com/hanchaa/MEFormer)                 | **0.739** | 0.856     | 0.764        | 0.944        | 0.952      | 0.790     | 0.941          | 0.835         | 0.918         | **0.834** | 0.796          | 0.787           |
+| [MoME](https://github.com/konyul/MoME)                          | 0.735     | 0.856     | 0.756        | 0.943        | 0.948      | 0.788     | 0.962          | 0.835         | 0.919         | 0.833     | 0.788          | 0.786           |
 | [MEFormer w/o PME](https://github.com/hanchaa/MEFormer)         | 0.737     | 0.853     | 0.755        | 0.945        | 0.954      | 0.789     | 0.937          | 0.834         | 0.917         | 0.831     | 0.786          | 0.785           |
 | [UniBEV_cat](https://github.com/tudelft-iv/UniBEV)              | 0.678     | 0.847     | 0.759        | 0.975        | 0.967      | 0.791     | 0.970          | 0.798         | 0.910         | 0.761     | 0.753          | 0.788           |
 | [UniBEV_avg](https://github.com/tudelft-iv/UniBEV)              | 0.684     | 0.844     | 0.760        | 0.972        | 0.965      | 0.776     | 0.964          | 0.797         | 0.909         | 0.752     | 0.757          | 0.787           |
@@ -171,10 +173,10 @@ where  $M_{c,s}$  represents metric for the $c$ types of corruption at the $s$-t
 
 *Relative Resistance Ability* ( $RRA_{c}$ ) compares the relative robustness of each model for a specific type of corruption with a baseline model. If the value is greater than zero, it indicates that the model demonstrates superior robustness compared to the baseline model. If the value is less than zero, it suggests that the model is less robust than the baseline. We can summarize the relative resistance by computing *Mean Relative Resistance Ability* (mRRA), which measures the relative robustness of the candidate model compared to a baseline model for all types of corruptions
 
-$$RRA_{c} = \frac{\sum\limits_{i=1}^{3} (M_{c, s})}{\sum\limits_{i=1}^{3} (M_{baseline, c, s})} - 1,$$
+$$RRA_{c} = \frac{\sum\limits_{i=1}^{3} (M_{c, s})}{\sum\limits_{i=1}^{3} (M_{baseline, c, s})} - 1$$
 
 
-$$mRRA = \frac{1}{N} \sum_{i=1}^{N} RRA_c.$$
+$$mRRA = \frac{1}{N} \sum_{i=1}^{N} RRA_c$$
 
 where $c$ denotes the type of corruption, $s$ represents the level of severity, and $N$ is the total number of corruption types considered in our benchmark. The term $RRA_{c}$ specifically illustrates the relative robustness of each model under a particular type of corruption $c$. The $mRRA$ reflects the global perspective by showing the average robustness of each model across all considered types of corruption with the baseline model.
 
