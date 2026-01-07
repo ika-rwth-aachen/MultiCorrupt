@@ -227,7 +227,7 @@ snow simulation run we need to download the snowflakes:
 
 ```bash
 cd converter
-wget https://www.trace.ethz.ch/publications/2022/lidar_snow_simulation/snowflakes.zip
+wget https://avi.ethz.ch/publications/2022/lidar_snow_simulation/snowflakes.zip
 unzip snowflakes.zip
 rm snowflakes.zip
 ```
