@@ -9,7 +9,7 @@ def parse_arguments():
     parser.add_argument('-c', '--corruption_type', help='Corruption type', type=str, default='motionblur')
     parser.add_argument('-s', '--severity_level', help='Severity level (1, 2, 3)', type=str, default='1')
     parser.add_argument('-p', '--plot_type', help='Plot type (bev, front_camera, multi_view_camera)', type=str, default='multi_view_camera')
-    parser.add_argument('-n', '--scene_name', help='Scene name', type=str, default='scene-0221')
+    parser.add_argument('-n', '--scene_name', help='Scene name', type=str, default='scene-0097')
     arguments = parser.parse_args()
     return arguments
 
@@ -21,7 +21,7 @@ severity_level = args.severity_level
 plot_type = args.plot_type
 scene_name = args.scene_name
 
-nusc = NuScenes(version='v1.0-trainval', dataroot=f'/workspace/multicorrupt/robust-nuscenes/{corruption_type}/{severity_level}', verbose=False)
+nusc = NuScenes(version='v1.0-trainval', dataroot=f'/workspace/multicorrupt/{corruption_type}/{severity_level}', verbose=False)
 
 
 def get_scene_index_by_name(nusc, scene_name):
