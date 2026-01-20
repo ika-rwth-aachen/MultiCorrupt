@@ -130,7 +130,7 @@
 
 
 ## Benchmark Results
-### 📊 Relative Resistance Ability (RRA) computed with NDS metric and baseline BEVfusion
+### 📊 Relative Resistance Ability (RRA) computed with NDS metric and baseline BEVFusion
 | Model                                                           | Clean     | ⬆️ mRRA    | Beams Red.   | Brightness   | Darkness   | Fog       | Missing Cam.   | Motion Blur   | Points Red.   | Snow       | Spatial Mis.   | Temporal Mis.   |
 |:----------------------------------------------------------------|:----------|:----------|:-------------|:-------------|:-----------|:----------|:---------------|:--------------|:--------------|:-----------|:---------------|:----------------|
 | ⭐ [MEFormer](https://github.com/hanchaa/MEFormer)              | **0.739** | **7.391** | 16.759       | 0.878        | 1.556      | 8.586     | -0.168         | -0.307        | **8.865**     | **11.382** | 16.689         | **9.668**       |
@@ -139,7 +139,7 @@
 | [MEFormer w/o PME](https://github.com/hanchaa/MEFormer)         | 0.737     | 6.740     | 15.172       | 0.714        | 1.522      | 8.176     | -0.791         | -0.679        | 8.384         | 10.749     | 14.968         | 9.184           |
 | [Sparsefusion](https://github.com/yichen928/SparseFusion)       | 0.732     | 3.033     | 4.264        | **3.179**    | **1.821**  | 4.429     | 0.297          | 0.280         | 3.242         | 1.887      | 3.699          | 7.228           |
 | [IS-Fusion](https://github.com/yinjunbo/IS-Fusion)              | 0.737     | 2.708     | 3.684        | 2.291        | 1.267      | 3.890     | 0.920          | **3.994**     | 1.691         | -2.351     | 4.513          | 7.177           |
-| ⚓ [BEVfusion](https://github.com/mit-han-lab/bevfusion)         | 0.714     | 0.000     | 0.000        | 0.000        | 0.000      | 0.000     | 0.000          | 0.000         | 0.000         | 0.000      | 0.000          | 0.000           |
+| ⚓ [BEVFusion](https://github.com/mit-han-lab/bevfusion)         | 0.714     | 0.000     | 0.000        | 0.000        | 0.000      | 0.000     | 0.000          | 0.000         | 0.000         | 0.000      | 0.000          | 0.000           |
 | [TransFusion](https://github.com/XuyangBai/TransFusion)         | 0.708     | -1.718    | -7.210       | 1.799        | 1.146      | -0.552    | 0.340          | -5.412        | -3.296        | -4.220     | -3.626         | 3.850           |
 | [UniBEV_avg](https://github.com/tudelft-iv/UniBEV)              | 0.684     | -2.154    | 7.617        | -3.758       | -4.595     | -1.228    | -5.170         | -11.777       | -0.144        | -6.909     | 2.812          | 1.617           |
 | [UniBEV_cat](https://github.com/tudelft-iv/UniBEV)              | 0.678     | -2.653    | 6.534        | -4.303       | -5.279     | -0.199    | -5.438         | -12.505       | -0.979        | -6.596     | 1.436          | 0.799           |
@@ -157,7 +157,7 @@
 | [UniBEV_avg](https://github.com/tudelft-iv/UniBEV)              | 0.684     | 0.844     | 0.760        | 0.972        | 0.965      | 0.776     | 0.964          | 0.797         | 0.909         | 0.752     | 0.757          | 0.787           |
 | [UniBEV_cnw](https://github.com/tudelft-iv/UniBEV)              | 0.685     | 0.837     | 0.740        | 0.971        | 0.966      | 0.775     | 0.957          | 0.784         | 0.905         | 0.742     | 0.747          | 0.781           |
 | [Sparsefusion](https://github.com/yichen928/SparseFusion)       | 0.732     | 0.834     | 0.689        | 0.975        | 0.963      | 0.767     | 0.954          | 0.848         | 0.879         | 0.770     | 0.714          | 0.777           |
-| [BEVfusion](https://github.com/mit-han-lab/bevfusion)           | 0.714     | 0.830     | 0.676        | 0.967        | 0.969      | 0.752     | 0.974          | 0.866         | 0.872         | 0.774     | 0.705          | 0.742           |
+| [BEVFusion](https://github.com/mit-han-lab/bevfusion)           | 0.714     | 0.830     | 0.676        | 0.967        | 0.969      | 0.752     | 0.974          | 0.866         | 0.872         | 0.774     | 0.705          | 0.742           |
 | [IS-Fusion](https://github.com/yinjunbo/IS-Fusion)              | 0.737     | 0.826     | 0.680        | 0.960        | 0.952      | 0.758     | 0.953          | **0.873**     | 0.860         | 0.733     | 0.715          | 0.771           |
 | [TransFusion](https://github.com/XuyangBai/TransFusion)         | 0.708     | 0.824     | 0.633        | **0.993**    | **0.988**  | 0.754     | **0.985**      | 0.826         | 0.851         | 0.748     | 0.685          | 0.777           |
 | [DeepInteraction](https://github.com/fudan-zvg/DeepInteraction) | 0.691     | 0.795     | 0.655        | 0.969        | 0.929      | 0.583     | 0.842          | 0.832         | 0.882         | 0.759     | 0.731          | 0.768           |
