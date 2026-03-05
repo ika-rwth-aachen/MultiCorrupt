@@ -8,7 +8,7 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description='Render corrupted nuScenes images and create a GIF animation.')
     parser.add_argument('-c', '--corruption_type', help='Corruption type', type=str, default='motionblur')
     parser.add_argument('-s', '--severity_level', help='Severity level (1, 2, 3)', type=str, default='1')
-    parser.add_argument('-p', '--plot_type', help='Plot type (bev, front_camera, front_camera_no_lidar, multi_view_camera)', type=str, default='multi_view_camera')
+    parser.add_argument('-p', '--plot_type', help='Plot type (bev, front_camera, front_camera_no_lidar, multi_view_camera, multi_view_camera_no_lidar)', type=str, default='multi_view_camera')
     parser.add_argument('-n', '--scene_name', help='Scene name', type=str, default='scene-0097')
     arguments = parser.parse_args()
     return arguments
@@ -62,7 +62,7 @@ def render_and_save_image(sample_token, output_path, plot_type):
     elif plot_type == "multi_view_camera":
         downscale_factor = 2
         images = []
-        camera_channels = ['CAM_BACK', 'CAM_BACK_LEFT', 'CAM_BACK_RIGHT', 'CAM_FRONT', 'CAM_FRONT_LEFT', 'CAM_FRONT_RIGHT']
+        camera_channels = ['CAM_FRONT_LEFT', 'CAM_FRONT', 'CAM_FRONT_RIGHT', 'CAM_BACK_LEFT', 'CAM_BACK', 'CAM_BACK_RIGHT']
         for channel in camera_channels:
             temp_output_path = f"tmp/{channel}_{sample_token}.jpg"
             nusc.render_pointcloud_in_image(
@@ -75,6 +75,32 @@ def render_and_save_image(sample_token, output_path, plot_type):
             img = Image.open(temp_output_path)
             images.append(img)
             os.remove(temp_output_path)
+
+        # Arrange images into a 2x3 grid
+        total_width = max(img.width for img in images[:3]) * 3
+        total_height = max(img.height for img in images[::2]) * 2
+        new_image = Image.new('RGB', (total_width, total_height))
+
+        x_offset = 0
+        y_offset = 0
+        for i, img in enumerate(images):
+            new_image.paste(img, (x_offset, y_offset))
+            x_offset += img.width
+            if (i + 1) % 3 == 0:
+                x_offset = 0
+                y_offset += img.height
+
+        new_image.save(output_path)
+    elif plot_type == "multi_view_camera_no_lidar":
+        downscale_factor = 2
+        images = []
+        sample = nusc.get('sample', sample_token)
+        camera_channels = ['CAM_FRONT_LEFT', 'CAM_FRONT', 'CAM_FRONT_RIGHT', 'CAM_BACK_LEFT', 'CAM_BACK', 'CAM_BACK_RIGHT']
+        for channel in camera_channels:
+            cam_data = nusc.get('sample_data', sample['data'][channel])
+            img_path = os.path.join(nusc.dataroot, cam_data['filename'])
+            img = Image.open(img_path)
+            images.append(img)
 
         # Arrange images into a 2x3 grid
         total_width = max(img.width for img in images[:3]) * 3
