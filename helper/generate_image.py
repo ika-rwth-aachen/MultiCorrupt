@@ -8,7 +8,7 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description='Render corrupted nuScenes images and create a GIF animation.')
     parser.add_argument('-c', '--corruption_type', help='Corruption type', type=str, default='motionblur')
     parser.add_argument('-s', '--severity_level', help='Severity level (1, 2, 3)', type=str, default='1')
-    parser.add_argument('-p', '--plot_type', help='Plot type (bev, front_camera, multi_view_camera)', type=str, default='multi_view_camera')
+    parser.add_argument('-p', '--plot_type', help='Plot type (bev, front_camera, front_camera_no_lidar, multi_view_camera)', type=str, default='multi_view_camera')
     parser.add_argument('-n', '--scene_name', help='Scene name', type=str, default='scene-0097')
     arguments = parser.parse_args()
     return arguments
@@ -31,7 +31,14 @@ def get_scene_index_by_name(nusc, scene_name):
     return None
 
 def render_and_save_image(sample_token, output_path, plot_type):
-    if plot_type == "front_camera":
+    if plot_type == "front_camera_no_lidar":
+        downscale_factor = 1
+        sample = nusc.get('sample', sample_token)
+        cam_data = nusc.get('sample_data', sample['data']['CAM_FRONT'])
+        img_path = os.path.join(nusc.dataroot, cam_data['filename'])
+        img = Image.open(img_path)
+        img.save(output_path)
+    elif plot_type == "front_camera":
         downscale_factor = 1
         nusc.render_pointcloud_in_image(
             sample_token,
@@ -107,7 +114,7 @@ if not os.path.exists('tmp'):
 image_count = 0
 frame_count = 0
 while current_sample_token != '':
-    if frame_count > 1 and image_count < 20:
+    if frame_count == 4:
         output_path = f"tmp/{corruption_type}_{severity_level}_{str(frame_count).zfill(4)}.jpg"
         render_and_save_image(current_sample_token, output_path, plot_type)
         image_count += 1
