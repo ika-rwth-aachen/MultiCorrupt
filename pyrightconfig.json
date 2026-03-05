@@ -1,0 +1,11 @@
+{
+    "verboseOutput": true,
+    "exclude": [
+        "nuscenes",
+        "multicorrupt",
+        ".git",
+        "**/node_modules",
+        "**/__pycache__",
+        "**/.*", ".venv"
+    ]
+}
