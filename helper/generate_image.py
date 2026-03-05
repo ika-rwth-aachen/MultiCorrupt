@@ -141,7 +141,7 @@ image_count = 0
 frame_count = 0
 while current_sample_token != '':
     if frame_count == 4:
-        output_path = f"tmp/{corruption_type}_{severity_level}_{str(frame_count).zfill(4)}.jpg"
+        output_path = f"tmp/{corruption_type}_{severity_level}_{plot_type}_{str(frame_count).zfill(4)}.jpg"
         render_and_save_image(current_sample_token, output_path, plot_type)
         image_count += 1
 
