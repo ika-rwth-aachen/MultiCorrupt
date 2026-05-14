@@ -116,6 +116,7 @@
 *Note: Right click and click on `Open Image in new tab` to enlarge an animation*
 
 ## News
+- [14.05.2026] Our related work **Query2Uncertainty** has been accpeted to CVPR 2026 and is available [here](https://tillbeemelmanns.github.io/query2uncertainty/)
 - [11.04.2025] **v0.0.10** Added model [MoME](https://github.com/konyul/MoME) to benchmark
 - [13.03.2025] Our related work **OCCUQ** has been accepted to ICRA and is available on [Github](https://github.com/ika-rwth-aachen/OCCUQ)
 - [21.02.2025] [**Download Link**](https://huggingface.co/datasets/TillBeemelmanns/MultiCorrupt) is available
